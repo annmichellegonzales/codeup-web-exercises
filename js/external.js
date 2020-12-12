@@ -4,6 +4,7 @@ alert('Welcome to my Website!');
 var response = prompt("What's your favorite color?");
 var message = 'Great, ' + response + ' is my fav too!'
 alert(message);
+
 var rentalPrice = parseInt(prompt("How much is it to rent a movie per night?"));
 var littleMermaid = parseInt(prompt("How many nights did you rent The Little Mermaid for?"));
 var brotherBear = parseInt(prompt("How many nights did you rent Brother Bear for?"));
@@ -17,11 +18,15 @@ var googleHours = parseInt(prompt("How many hours did you work at Google?")),
     facebookHours = parseInt(prompt("How many hours did you work at Facebook?"));
 alert("Your total pay is: $" + (googlePay*googleHours + amazonPay*amazonHours + facebookPay*facebookHours) + ".");
 
-let isClassOpen = confirm("Is there room in the class?")
-let studentSchedule = confirm("Will you be available?")
-alert("You may register:" + isClassOpen&&studentSchedule)
-//
-// var offerValid
-//alert("Is the offer applicable:" +offerValid +
-// A produc
-// t offer can be applied only if a person buys more than 2 items, and the offer has not expired. Premium members do not need to buy a specific amount of products.
+var isClassOpen = confirm("Is there room in the class?");
+var studentSchedule = confirm("Will you be available?");
+var abilityToEnroll = isClassOpen&&studentSchedule;
+alert(isClassOpen&&studentSchedule);
+
+alert("Welcome to my shop.");
+var isCouponValid = confirm("Is your coupon valid?");
+var moreThanTwoItems = confirm("Are you purchasing 2 or more items?");
+alert(isCouponValid&&moreThanTwoItems);
+var isPremiumMember = confirm("Are you a premium member?");
+alert(isCouponValid&&isPremiumMember);
+alert("Great! Premium members receive discounts on all purchases with a valid coupon. Thanks for shopping!");
