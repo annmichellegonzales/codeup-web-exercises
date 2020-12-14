@@ -64,6 +64,7 @@ console.log(getSmallerSegment("CODEUP", 3));
 
 //IIFE's be like:
 
+
 (function() {
 
 })();
