@@ -1,5 +1,5 @@
 "use strict";
-console.log("Hello from external.js");
+/*console.log("Hello from external.js");
 alert('Welcome to my Website!');
 var response = prompt("What's your favorite color?");
 var message = 'Great, ' + response + ' is my fav too!'
@@ -29,4 +29,73 @@ var moreThanTwoItems = confirm("Are you purchasing 2 or more items?");
 alert(isCouponValid&&moreThanTwoItems);
 var isPremiumMember = confirm("Are you a premium member?");
 alert(isCouponValid&&isPremiumMember);
-alert("Great! Premium members receive discounts on all purchases with a valid coupon. Thanks for shopping!");
+alert("Great! Premium members receive discounts on all purchases with a valid coupon. Thanks for shopping!");*/
+
+function isFive(input) {
+    return input == 5;
+}
+
+console.log(isFive(5));
+
+
+function isShortWord(str) {
+    return str.length <= 5;
+}
+
+console.log(isShortWord("a;sdoifnasd;ofin"));
+console.log(isShortWord("cat"));
+
+
+function isSameLength(str1, str2) {
+    return str1.length === str2.length;
+}
+
+console.log(isSameLength("cat", "bat"), true);
+console.log(isSameLength("cats", "bat"), false);
+
+
+function getSmallerSegment(someString, someNumber) {
+    var lower = someString.toLowerCase();
+    return lower.substring(0, someNumber);
+}
+
+console.log(getSmallerSegment("battlegroundARENA", 4));
+console.log(getSmallerSegment("CODEUP", 3));
+
+//IIFE's be like:
+
+(function() {
+
+})();
+
+
+(function() {
+
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
