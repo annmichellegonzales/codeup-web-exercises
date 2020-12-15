@@ -22,7 +22,7 @@ console.log(sayHello('codeup'));
  * console.log 'helloMessage' to check your work
  */
 
-var helloMessage = console.log(sayHello("ann"));
+var helloMessage = sayHello("Ann");
 
 console.log(helloMessage);
 
@@ -59,9 +59,9 @@ var random = Math.floor((Math.random() * 3) + 1);
  */
 
 function isTwo(thisNumber) {
-    return random == 2;
+    return random === 2;
 }
-
+console.log(random);
 console.log(isTwo(random));
 
 /**
@@ -76,11 +76,11 @@ console.log(isTwo(random));
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
-//function calculateTip(tipPercentage, totalBill) {
-//    return tipPercentage * totalBill;
-//};
-//console.log(calculateTip(0.20, 20));
-//console.log(calculateTip(0.25, 25.50));
+function calculateTip(tipPercentage, totalBill) {
+    return tipPercentage * totalBill;
+};
+console.log(calculateTip(0.20, 20));
+console.log(calculateTip(0.25, 25.50));
 
 /**
  * TODO:
@@ -88,8 +88,24 @@ console.log(isTwo(random));
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
+var billTotal = parseFloat(prompt("What is the total of your bill?"));
+var tipPercentage = parseFloat(prompt("What decimal percentage would you like to tip?"));
 
+var tipAmountDollars = calculateTip(tipPercentage, billTotal);
 
+function numToDollars(num) {
+    return '$' + num.toFixed(2);
+}
+
+console.log(tipAmountDollars);
+var outputMessage = "Given a bill of "
+    + numToDollars(billTotal)
+    + " and tipping "
+    + tipPercentage * 100
+    + "%, your total is: $"
+    + calculateTip(billTotal, tipPercentage);
+
+alert(outputMessage);
 
 /**
  * TODO:
@@ -106,9 +122,8 @@ console.log(isTwo(random));
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
 
-//function applyDiscount(originalPrice, discountPercent) {
-    var originalPrice = prompt("What is the original price of the product?");
-    var discountPercent = prompt("What is the discount percentage?");
-    var discount = discountPercent * originalPrice;
-    return discount();
+function applyDiscount(originalPrice, discountPercent) {
+    var originalPrice = parseFloat(prompt("What is the original price of the product?"));
+    var discountPercent = parseFloat(prompt("What is the decimal percentage off?"));
+    return alert("Your discounted price is: " + parseInt(originalPrice - (originalPrice * discountPercent)));
 }
