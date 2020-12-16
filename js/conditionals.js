@@ -77,7 +77,6 @@ switch (randomColor) {
         break;
 }
 
-console.log("test");
 
 /**
  * TODO:
@@ -100,7 +99,7 @@ function analyzeColor(colorInput) {
     }
 }
 
-
+console.log(analyzeColor(colorInput));
 
 
 /* ########################################################################## */
@@ -125,11 +124,27 @@ function analyzeColor(colorInput) {
  * return value.
  */
 
+function calculateTotal(luckyNumber, totalAmount) {
 
+    if (parseFloat(luckyNumber) === 0) {
+        return "Sorry, no discount. Your total is: " + totalAmount + " Thank your for shopping at Walmart."
+    } else if
+    (parseFloat(luckyNumber) === 1) {
+        return "Congratulations! Your discount is 10% off. Your total is: " + totalAmount - (totalAmount * .10) + " Thank you for shopping at Walmart."
+    } else if (parseFloat(luckyNumber) === 2) {
+        return "Congratulations! Your discount is 25% off. Your total is: " + totalAmount - (totalAmount * .25) + " Thank you for shopping at Walmart."
+    } else if (parseFloat(luckyNumber) === 3) {
+        return "Congratulations! Your discount is 35% off." + totalAmount - (totalAmount * .35) + " Thank you for shopping at Walmart."
+    } else if (parseFloat(luckyNumber) === 4) {
+    return "Congratulations! Your discount is 50% off." + totalAmount - (totalAmount * .50) + " Thank you for shopping at Walmart."
+    } else if (parseFloat(luckyNumber) === 5) {
+        return "Congratulations! Your items are FREE!!!" + totalAmount - (totalAmount * .100) + " Thank you for shopping at Walmart."
+    } else {
+        return "You must be shopping at Target."
+    }
+}
 
-
-
-
+console.log(calculateTotal (100, 100));
 
 
 /**
