@@ -127,24 +127,33 @@ console.log(analyzeColor(colorInput));
 function calculateTotal(luckyNumber, totalAmount) {
 
     if (parseFloat(luckyNumber) === 0) {
-        return "Sorry, no discount. Your total is: " + totalAmount + " Thank your for shopping at Walmart."
+        return "Sorry, no discount. Your total is: " + parseFloat(totalAmount) + " Thank your for shopping at Walmart."
     } else if
     (parseFloat(luckyNumber) === 1) {
-        return "Congratulations! Your discount is 10% off. Your total is: " + totalAmount - (totalAmount * .10) + " Thank you for shopping at Walmart."
+        return "Congratulations! Your discount is 10% off. Your total is: $"
+            + (parseFloat(totalAmount) - (parseFloat(totalAmount) * .10))
+            + " Thank you for shopping at Walmart.";
     } else if (parseFloat(luckyNumber) === 2) {
-        return "Congratulations! Your discount is 25% off. Your total is: " + totalAmount - (totalAmount * .25) + " Thank you for shopping at Walmart."
+        return "Congratulations! Your discount is 25% off. Your total is: $"
+            + (parseFloat(totalAmount) - (parseFloat(totalAmount) * .25))
+            + " Thank you for shopping at Walmart.";
     } else if (parseFloat(luckyNumber) === 3) {
-        return "Congratulations! Your discount is 35% off." + totalAmount - (totalAmount * .35) + " Thank you for shopping at Walmart."
+        return "Congratulations! Your discount is 35% off. Your total is: $"
+            + (parseFloat(totalAmount) - (parseFloat(totalAmount) * .35))
+            + " Thank you for shopping at Walmart.";
     } else if (parseFloat(luckyNumber) === 4) {
-    return "Congratulations! Your discount is 50% off." + totalAmount - (totalAmount * .50) + " Thank you for shopping at Walmart."
+    return "Congratulations! Your discount is 50% off. Your total is: $"
+        + (parseFloat(totalAmount) - (parseFloat(totalAmount) * .50))
+        + " Thank you for shopping at Walmart.";
     } else if (parseFloat(luckyNumber) === 5) {
-        return "Congratulations! Your items are FREE!!!" + totalAmount - (totalAmount * .100) + " Thank you for shopping at Walmart."
+        return "Congratulations! Your items are FREE! Thank you for shopping at Walmart.";
     } else {
-        return "You must be shopping at Target."
+        return "You must be shopping at Target.";
     }
 }
 
-console.log(calculateTotal (100, 100));
+console.log(calculateTotal (2, 100));
+console.log(calculateTotal(5, 50));
 
 
 /**
@@ -155,7 +164,40 @@ console.log(calculateTotal (100, 100));
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
+var totalAmount = parseFloat(prompt("What is the total of your bill?"));
+
+function calculateTotal(luckyNumber, totalAmount) {
+
+    if (parseFloat(luckyNumber) === 0) {
+        return "Sorry, no discount. Your total is: " + parseFloat(totalAmount) + " Thank your for shopping at Walmart."
+    } else if
+    (parseFloat(luckyNumber) === 1) {
+        return "Congratulations! Your discount is 10% off. Your total is: $"
+            + (parseFloat(totalAmount) - (parseFloat(totalAmount) * .10))
+            + " Thank you for shopping at Walmart.";
+    } else if (parseFloat(luckyNumber) === 2) {
+        return "Congratulations! Your discount is 25% off. Your total is: $"
+            + (parseFloat(totalAmount) - (parseFloat(totalAmount) * .25))
+            + " Thank you for shopping at Walmart.";
+    } else if (parseFloat(luckyNumber) === 3) {
+        return "Congratulations! Your discount is 35% off. Your total is: $"
+            + (parseFloat(totalAmount) - (parseFloat(totalAmount) * .35))
+            + " Thank you for shopping at Walmart.";
+    } else if (parseFloat(luckyNumber) === 4) {
+        return "Congratulations! Your discount is 50% off. Your total is: $"
+            + (parseFloat(totalAmount) - (parseFloat(totalAmount) * .50))
+            + " Thank you for shopping at Walmart.";
+    } else if (parseFloat(luckyNumber) === 5) {
+        return "Congratulations! Your items are FREE! Thank you for shopping at Walmart.";
+    } else {
+        return "You must be shopping at Target.";
+    }
+}
+
+console.log(calculateTotal(luckyNumber, totalAmount));
+
+
 
 /**
  * TODO:
