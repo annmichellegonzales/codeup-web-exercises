@@ -63,20 +63,48 @@
         // // //end the loop at.... well.. you decide!
 
 
+        // var someNum = 0;
+        // function fizzBuzz() {
+        //     for (var i = 1; i < 100; ++i) someNum += i;
+        //         if (i % 15 === 0) {
+        //             console.log("FizzBuzz");
+        //         } else if (i % 3 === 0) {
+        //             console.log("Fizz");
+        //         } else if (i % 5 === 0) {
+        //             console.logf("Buzz");
+        //         } else {
+        //             console.log(i);
+        //         }
+        //
+        // }
 
-        function fizzBuzz() {
-            for (var i = 1; i < 100; ++i) {
-                if (i % 15 === 0) {
-                    console.log("FizzBuzz");
-                } else if (i % 3 === 0) {
-                    console.log("Fizz");
-                } else if (i % 5 === 0) {
-                    console.logf("Buzz");
-                } else {
-                    console.log(i);
-                }
-            }
-        }
+      var numberToStopAt = 5;
+
+      for (var i = 1; i < 100; i++) {
+
+          console.log('Loop counter is: ' + i);
+
+          if (i === numberToStopAt) {
+              console.log('We have reached the stopping point: break!');
+              // use the break keyword to exit from the while loop
+              break;
+              // nothing after the break will get processed
+              console.log('You will never see this line.');
+          }
+      }
+
+
+      for (var i = 1; i < 100; i++) {
+
+          if (i % 2 === 0) {
+              // number isn't even
+              // odd numbers aren't as cool
+              // skip the rest of the loop and continue with the next iteration
+              continue;
+          }
+
+          console.log('Here is a lovely odd number: ' + i);
+      }
 
     </script>
 </body>
