@@ -2,9 +2,9 @@
 
 console.log("test");
 
-for (var userNum = prompt("Please enter an odd number between 1 and 50") {
-    console.log(The number must be oddgit )
-}
+// for (var userNum = prompt("Please enter an odd number between 1 and 50");) {
+//     alert("The number must be odd");
+// }
 
 
 for (var i = 1; i < 100; i++) {
@@ -20,5 +20,5 @@ for (var i = 1; i < 100; i++) {
     }
 }
 
- Use a loop and a break statement to continue prompting the user if they enter invalid input.
-    Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
+ // Use a loop and a break statement to continue prompting the user if they enter invalid input.
+ //    Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
