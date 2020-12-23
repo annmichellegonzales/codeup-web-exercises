@@ -1,31 +1,18 @@
 "use strict"
-console.log("test");
 
-var numberToStopAt = 5;
+var i = 1;
 
-for (var i = 1; i < 100; i++) {
-
-    console.log('Loop counter is: ' + i);
-
-    if (i === numberToStopAt) {
-        console.log('We have reached the stopping point: break!');
-        // use the break keyword to exit from the while loop
-        break;
-        // nothing after the break will get processed
-        console.log('You will never see this line.');
-    }
+while (i <= 32768) {
+    console.log(i*=2);
 }
+//i*=2 taken from: https://www.sololearn.com/Discuss/786601/pls-i-need-a-java-code-to-count-numbers-like-this-1-2-4-8-16-32-64
 
 
 
+var allCones = Math.floor(Math.random() * 50) + 50;
 
-// var allCones = Math.floor(Math.random() * 50) + 50;
-// do {
-//
-//     var bought = Math.floor(Math.random() * 5) + 1;
-// } while
-//
+do {
+    console.log(Math.floor(Math.random() * 5) + 1);
+    i++;
+} while (allCones < 50);
 
-//console.log("Cannot sell you " + allCones + " I only have " + allCones - 1)
-//     ( Math.floor(Math.random() * 5) + 1 < allCones);
-// break;
