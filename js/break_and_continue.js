@@ -1,12 +1,12 @@
 "use strict"
 
-console.log("test");
-
 // attempt:
 // for (var userNum = prompt("Please enter an odd number between 1 and 50");) {
 //     alert("The number must be odd");
 // }
 //followed along with lecture:
+
+var userNum;
 
 function isValid(input) {
     input = parseFloat(input);
@@ -16,28 +16,36 @@ function isValid(input) {
     return isNumeric && isOdd && isInCorrectRange;
 }
 
-var userNum;
-while(true) {
-    userNum = prompt('Please enter an odd number that is between 1 and 50')
-    if (isValid(userNum)) {
-        break;
+function getUserNumber() {
+    var userNum;
+    while(true) {
+        userNum = prompt('Please enter an odd number that is between 1 and 50');
+        if (isValid(userNum)) {
+            break;
+        }
+        alert('INVALID NUMBER!')
     }
-    alert('INVALID NUMBER!!!')
+    return userNum;
 }
 
-console.log('Number to skip is: ' + userNum);
-
-for(var i = 0; i <= 50; i += 1) {
-    console.log(i, userNum);
-    if (i === parseFloat(userNum)) {
-        console.log('Yikes! Skipping user number: ' + userNum);
-        continue;
+function createOddNumberMessages(userNum) {
+    console.log('Number to skip is: ' + userNum);
+    console.log('');
+    for(var i = 1; i <= 50; i += 1) {
+        if(i === parseFloat(userNum)) {
+            console.log('Yikes! Skipping number: ' + userNum);
+            continue;
+        }
+        if (i % 2 === 0) {
+            continue;
+        }
+        console.log('Here is an odd number: ' + i);
     }
-    if (i % 2 === 0) {
-        continue;
-    }
-    console.log('Here is an odd number: ' + i);
 }
+userNum = getUserNumber();
+createOddNumberMessages(userNum);
+
+
 
 //attempted:
 // for (var i = 1; i < 100; i++) {
