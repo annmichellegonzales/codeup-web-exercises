@@ -1,46 +1,36 @@
 (function(){
     "use strict";
 
-    var planets = [
-        'Mercury',
-        'Venus',
-        'Earth',
-        'Mars',
-        'Jupiter',
-        'Saturn',
-        'Uranus',
-        'Neptune'
-    ];
+    var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
+    var planetsArray;
 
     /**
      * TODO:
-     * Read each console log below, and write some javascript code to perform
-     * the step that it describes
+     * Convert planetsString to an array, and save it in a variable named
+     * planetsArray.
+     * console.log planetsArray to check your work
      */
 
-    console.log("test")
-    console.log('Adding "The Sun" to the beginning of the planets array.');
-    console.log(planets.unshift('The Sun'));
-    console.log(planets);
+    var planetsArray = planetsString.replaceAll('|', ', ').split();
 
-    console.log('Adding "Pluto" to the end of the planets array.');
-    console.log(planets.push('Pluto'));
-    console.log(planets);
+    console.log(planetsArray);
 
-    console.log('Removing "The Sun" from the beginning of the planets array.');
-    console.log(planets.shift());
-    console.log(planets);
 
-    console.log('Removing "Pluto" from the end of the planets array.');
-    console.log(planets.pop());
-    console.log(planets);
 
-    console.log('Finding and logging the index of "Earth" in the planets array.');
-    console.log(planets.indexOf("Earth"));
+    /**
+     * TODO:
+     * Create a string with <br> tags between each planet. console.log() your
+     * results. Why might this be useful?
+     *
+     * BONUS:
+     * Create another string that would display your planets in an undordered
+     * list. You will need an opening AND closing <ul> tags around the entire
+     * string, and <li> tags around each planet.
+     */
 
-    console.log("Reversing the order of the planets array.");
-    console.log(planets.reverse());
+    console.log(planetsArray.join(",").replaceAll(", ", " <br> "));
 
-    console.log("Sorting the planets array.");
-    console.log(planets.sort());
+
+    // <li> tags needed
+
 })();
