@@ -13,6 +13,12 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
 
+    var person = {
+        firstName: "Ann",
+        lastName: "Gonzales"
+    }
+    console.log(person.firstName);
+
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -22,6 +28,11 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+
+    function sayHello(person) {
+        return "Hello from " + firstName + lastName;
+    }
+    console.log(person.sayHello());
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -36,6 +47,9 @@
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
+
+
+
 
     // var shoppers = [
     //     {name: 'Cameron', amount: 180},
