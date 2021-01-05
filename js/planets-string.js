@@ -37,6 +37,17 @@
     // console.log(planetList);
 
 
+    var fruits =['apple', 'banana', 'orange', 'apple', 'pineapple'];
+
+    function allIndexesOf(array, val) {
+        for (var i = 0; i < array.length; i++) {
+            if array.indexof(val) {
+                return [array, val];
+            }
+
+        }
+    }
+    console.log(allIndexesOf(fruits, "apple"));
 
     // for (var i = 0; i < instructors.length; i++) {
     //     console.log("One of your instructors is named: " + instructors[i]);
