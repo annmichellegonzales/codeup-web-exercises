@@ -60,14 +60,20 @@
 // disableBreeding() - will set canBreed to false
 // vaccinate(nameOfVaccination) - takes in an argument for the name of the vaccination and adds a new shot with the current date to the shotRecords array
 
+var shotRecord = {};
+var shotRecord2 = {};
 
+shotRecord.name = "Parvo";
+shotRecord.date = "01 JAN 2021";
+shotRecord2.name = "Rabies";
+shotRecord2.date = "02 JAN 2021";
 
 var dog = {
         breed: "Yorkie",
         age: 5,
         color: "tan",
         canBreed: true,
-        shotRecords: [["01 JAN 2019", "Rabies"], ["06 JUN 2020", "Other"]],
+        shotRecords: [shotRecord, shotRecord2],
         bark: function() {
             console.log("Woof!")
         },
@@ -76,31 +82,22 @@ var dog = {
         },
     }
 
-
-
 dog.disableBreeding = function () {
     this.canBreed = false;
 };
 
-// dog.vaccinate = function (date, name) {
-//     var obj = {};
-//     obj["01"] = this.shotRecords.date;
-//     obj["02"] = this.shotRecords.name;
-//     dog.shotRecords.push(obj);
-// }
+dog.vaccinate = function (date, name) {
+    var obj = {};
+    obj.date = date;
+    obj.name = name;
+    dog.shotRecords.push(obj);
+}
 
 
 dog.disableBreeding();
 dog.getOlder();
-
-// dog.vaccinate = function (date, name) {
-//     dog.shotRecords.push;
-// }
-//
-// dog.vaccinate("01 JAN 2021", "Parvo");
-
+dog.vaccinate("01 JAN 2021", "Parvo");
 console.log(dog);
-
 dog.bark();
 
 
