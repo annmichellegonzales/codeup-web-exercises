@@ -37,7 +37,7 @@
     // console.log(planetList);
 
 
-   ?
+
     console.log(allIndexesOf(fruits, "apple"));
 
     // for (var i = 0; i < instructors.length; i++) {
