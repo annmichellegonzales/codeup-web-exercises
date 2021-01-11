@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+    <header>
+        <h1>Register with Us</h1>
+    </header>
+
+        <form method="POST" action="https://www.elformo.com/forms/e4fdd30f-aace-43d6-b043-784d59426365">
+
+            <section>
+
+                <label for="username">Email:</label>
+                <input id="username" name="username" type="text" placeholder="Enter your email">
+                <br>
+
+                <label for="password">Password:</label>
+                <input id="password" name="password" type="password" placeholder="Enter your password">
+                <br>
+
+                <label for="bio">Bio:</label>
+                <br>
+                <textarea name="bio" id="bio" cols="30" rows="10">Tell me about yourself</textarea>
+                <br>
+
+            </section>
+
+            <section>
+
+                <label for="howDidYou">How did you hear about us?</label>
+                <br>
+                <input id= "howDidYou"name="how1" type="radio"  value="a"> Billboard
+                <br>
+                <input id= "howDidYou"name="how2" type="radio"  value="b"> Radio Advertisement
+                <br>
+                <input id= "howDidYou"name="how3" type="radio"  value="c"> Internet Advertisement
+                <br>
+                <input id= "howDidYou"name="how4" type="radio"  value="d"> Other
+                <br>
+
+                <!--- if given different input names, the radio buttons can all be clicked. Then, they cannot be un-clicked -->
+
+                <label for="webBrowser">What web browser are you using?</label>
+                <select name="console" id="webBrowser">
+                    <option value="">- please select -</option>
+                    <option value="chrome">Chrome</option>
+                    <option value="firefox">Firefox</option>
+                    <option value="safari">Safari</option>
+                </select>
+                <br>
+
+            </section>
+
+            <input type="submit">
+        </form>
+
+</body>
+</html>
