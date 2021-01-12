@@ -1,0 +1,55 @@
+.classyClass {
+    background-color: darkslateblue;
+    color: white;
+    float: right;
+
+}
+
+h1 {
+    alignment: center;
+    color: fuchsia;
+}
+
+p {
+    color: dodgerblue;
+}
+
+/* id's */
+#myHeader {
+    background-color: lightblue;
+    color: black;
+    padding: 40px;
+    text-align: center;
+}
+ /*!important*/
+p {
+    color: red !important;
+}
+#thing {
+    color: green;
+}
+/*
+  All of these selectors match
+  and they all have the same specificity
+*/
+.module {
+    background: #ccc;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+.module-foo {
+    background: orange;
+}
+/* LAST declared, so these property/values win */
+.module-bar {
+    background: lightblue; /* I win! */
+    /* I still have all the _other_ styles as well */
+}
+
+h1.fancy-header {
+    color: blue;
+}
+h2.fancy-header {
+    color: gold;
+}

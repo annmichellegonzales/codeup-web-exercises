@@ -8,3 +8,18 @@ comment
     color: purple; /* single line comment */
     text-decoration: underline;
 }
+
+h1 {
+    text-align: center;
+}
+
+header {
+    color: red;
+    text-decoration: underline;
+}
+
+body {
+    background-image: ;
+    background-color: lightslategrey;
+}
+

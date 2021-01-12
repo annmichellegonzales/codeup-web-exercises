@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/classy-class.css">
+</head>
+<body>
+<section>
+    <h1>Specificity:</h1>
+    <p>the means by which browsers decide which CSS property values are the most relevant to an
+        element and,
+        therefore, will be applied. Specificity is based on the matching rules which are composed of different sorts of
+        CSS
+        selectors.</p>
+    <br>
+
+    <p>Specificity is how Chrome decides what property values (colors, sizes, etc.) to apply to a webpage.
+        It is done by matching the rules based on the selectors used in html and the stylesheet.</p>
+
+    <h3>The selector types are:</h3>
+    <ul>
+        <li>Type selectors (e.g., h1) and pseudo-elements (e.g., ::before).</li>
+        <li>Class selectors (e.g., .example), attributes selectors (e.g., [type="radio"]) and pseudo-classes (e.g.,
+            :hover).
+        </li>
+        <li>ID selectors (e.g., #example).s based on the matching rules which are composed of different sorts of CSS
+            selectors.
+        </li>
+    </ul>
+
+</section>
+<h3>Classes</h3>
+
+<div class="classyClass">When accessing a portion of html with a class, use . on the stylesheet to style.</div>
+<p class="classyClass">I am classy, too!</p>
+
+<h3>Elements</h3>
+
+<article>Selectors select elements to alter.</article>
+
+<p>This element is a p-tag, and has been altered in the stylesheet.</p>
+
+<!-- The id attribute specifies a unique id for an HTML element. The value of the id attribute must be unique within the
+ HTML document. -->
+<!-- The syntax for id is: write a hash character (#), followed by an id name. Then, define the CSS properties within
+curly braces {}.-->
+<h1 id="myHeader">My Header</h1>
+<!-- The paragraph is will be red, even though the ID selector has higher specificity. The !important rule overrides
+that particular property. -->
+<p id="thing">Will be RED.</p>
+<!-- The order of the attributes in the HTML don't matter. It's the order in the stylesheet. Let's focus on the
+background: -->
+<div class="module module-foo module-bar">
+    Module
+</div>
+<!--Inline Style
+Inline is used to apply a unique style to a single HTML element-->
+<p style="color: darkgreen;">
+    This is an example of an inline style
+</p>
+<!--Combination Selector
+    Combination Selectors show the direct relationship between the two selectors-->
+<h1 class="fancy-header">Hello there!</h1>
+<h2 class="fancy-header">Hey there stranger!</h2>
+<!-- What does the "Cascading" mean in "Cascading Style Sheets"?
+    Cascading means that styles can fall from one style sheet to another enabling multiple style sheets to be used on one HTML file-->
+
+</body>
+</html>
