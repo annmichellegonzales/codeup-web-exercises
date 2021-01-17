@@ -5,33 +5,45 @@
     <title>Logo</title>
     <link rel="stylesheet" href="css/flexbox-nav-exercise.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
 </head>
 <body>
 
-
 <header>
-<nav>
-    <div class="navigation">
-        <ul>
-            <li>Articles</li>
-            <li>Products</li>
-            <li>Market</li>
-            <li>Jobs</li>
-        </ul>
-    </div>
-    <div class="logo">
-        <h2>Logo</h2>
+    <nav>
+        <div class="navigation">
+            <ul>
+                <li><a class="articles" href="#articles">Articles</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#market">Market</a></li>
+                <li><a href="#jobs">Jobs</a></li>
+            </ul>
         </div>
-    <div class="follow-us">
-        <h6>Follow Us</h6>
-        <i class="fas fa-search"></i>
-        <i class="fas fa-shopping-cart"></i>
-        <i class="fas fa-user-circle"></i>
-<!--        insert images here for following on social media-->
-    </div>
-</nav>
+        <div class="logo">Logo</div>
+        <div class="follow-us">
+            <ul>
+                <li><a href="#follow"><h6>Follow Us</h6></a></li>
+                <li><a class="fas fa-search" href="#search"></a></li>
+                <li><a class="fas fa-shopping-cart" href="#cart"></a></li>
+                <li><a class="fas fa-user-circle" href="user"></a></li>
+            </ul>
+        </div>
+    </nav>
 </header>
 
+
+<!--The navbar must have the following:-->
+
+<!--box-sizing: border-box for all elements-->
+
+<!--anchor tags are display: inline-block-->
+<!--clickable area of links immediately flow from one link to the next (padding will help achieve this)-->
+
+<!--the "Logo" text is 3em with .2em of padding above and below-->
+<!--no explicit height given to the navbar-->
+<!--default styling is removed as needed from the body, unordered list and anchor tag elements-->
+<!--logo is absolutely positioned to completely center text on the navbar-->
 
 </body>
 </html>

@@ -2,21 +2,67 @@ body {
     background: black;
 }
 nav {
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
     background: lightgray;
     display: flex;
     flex-direction: row;
-    margin: auto;
-    align-items: center;
-
+    justify-content: space-around;
+    width: 100%;
 }
 
 .logo {
-    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    text-decoration: none;
+    font-size: 3em;
+    padding: .2em .2em;
+
 }
 
 .navigation ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
+    align-self: flex-start;
+    align-items: center;
+    justify-items: flex-start;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    text-decoration: none;
+    padding: 1em;
+
+}
+
+a {
+    display: inline-block;
+    padding: 5px 5px;
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: blue;
+    padding: 10px;
+}
+
+.follow-us ul {
+    display: flex;
+    align-self: flex-end;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    text-decoration: none;
+    color: black;
+    padding: 1em;
+}
+
+.follow-us a:hover {
+    background-color: blue;
 }
