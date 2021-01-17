@@ -1,6 +1,7 @@
 body {
     background: black;
 }
+
 nav {
     box-sizing: border-box;
     font-family: 'Work Sans', sans-serif;
@@ -8,34 +9,18 @@ nav {
     background: lightgray;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: space-between;
 }
 
-.logo {
+header {
     position: absolute;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    right: 50%;
+    font-family: 'Montserrat',
+    sans-serif;
     color: black;
     text-decoration: none;
     font-size: 3em;
     padding: .2em .2em;
-
-}
-
-.navigation ul {
-    display: flex;
-    align-self: flex-start;
-    align-items: center;
-    justify-items: flex-start;
-    flex-wrap: wrap;
-    list-style-type: none;
-    margin: 0;
-    text-decoration: none;
-    padding: 1em;
-
 }
 
 a {
@@ -47,22 +32,28 @@ a {
 
 a:hover {
     background-color: blue;
-    padding: 10px;
+    padding: 1em;
 }
 
-.follow-us ul {
+.navigation {
     display: flex;
-    align-self: flex-end;
+    align-self: flex-start;
     align-items: center;
-    justify-items: center;
+    justify-items: flex-start;
+    list-style-type: none;
+    margin: 0;
+    text-decoration: none;
+    padding: 2em;
+}
+
+.follow-us {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     list-style-type: none;
     margin: 0;
     text-decoration: none;
     color: black;
     padding: 1em;
-}
-
-.follow-us a:hover {
-    background-color: blue;
 }
