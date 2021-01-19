@@ -1,0 +1,49 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 42px;
+    color: white;
+}
+
+body {
+    width: 850px;
+    margin: 0 auto;
+    background: #BFAFE2;
+}
+
+.square {
+    opacity: 1.0;
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin-left: 50px;
+    border-radius: 2px;
+    transition: 0.2s;
+}
+
+.square:hover {
+    transform: rotate(2deg) scale(1.1);
+}
+
+
+
+.red {
+    background: red;
+}
+
+.blue {
+    background: blue;
+}
+
+.green {
+    background: green;
+}
+
+.yellow {
+    background: yellow;
+}
