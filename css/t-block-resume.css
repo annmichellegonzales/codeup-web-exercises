@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.jumbotron {
+    background-color: white;
+    height: 100px;
+
+}
+
+header {
+    text-align: center;
+}
+
+.software-dev {
+    color: black;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.col {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    text-align: center;
+}
+
+h3 {
+    color: blue;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 3px solid #0fb784;
+    margin: 2em 0;
+    padding: 0;
+}
