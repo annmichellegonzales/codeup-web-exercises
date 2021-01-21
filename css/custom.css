@@ -1,0 +1,45 @@
+.jumbotron {
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    align-content: center;
+    margin-top: 20px;
+    background-size: cover;
+    color: white;
+    height: 500px;
+    background-repeat: no-repeat;
+
+}
+.container {
+    display: block;
+}
+
+.user a {
+    color: black;
+}
+
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    height: 4em;
+    padding-top: 1em;
+    color: #847477;
+    background-color: white;
+    opacity: 2;
+}
+
+h2 {
+    position: relative;
+}
+
+.checkout-button a {
+    float: right;
+}
+
+ul .list-group {
+    border: gray;
+}
