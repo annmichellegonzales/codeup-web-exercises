@@ -3,17 +3,6 @@
     background-repeat: no-repeat;
     background-size: 100%;
 }
-    /*background: url('img/pizza.png') no-repeat center center;*/
-    /*background-size: cover;*/
-
-    /*display: flex;*/
-    /*position: relative;*/
-    /*justify-content: flex-start;*/
-    /*align-content: center;*/
-    /*margin-top: 20px;*/
-    /*height: 100px;*/
-}
-
 .container {
     display: block;
 }
