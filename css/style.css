@@ -3,6 +3,9 @@ multi
 line
 comment
 */
+* {
+    align-content: center;
+}
 
 
 .fancy-header {

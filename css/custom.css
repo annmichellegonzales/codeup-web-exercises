@@ -1,15 +1,19 @@
 .jumbotron {
-    display: flex;
-    position: relative;
-    justify-content: flex-start;
-    align-content: center;
-    margin-top: 20px;
-    background-size: cover;
-    color: white;
-    height: 500px;
+    background-image: url("../img/pizza.png");
     background-repeat: no-repeat;
-
+    background-size: 100%;
 }
+    /*background: url('img/pizza.png') no-repeat center center;*/
+    /*background-size: cover;*/
+
+    /*display: flex;*/
+    /*position: relative;*/
+    /*justify-content: flex-start;*/
+    /*align-content: center;*/
+    /*margin-top: 20px;*/
+    /*height: 100px;*/
+}
+
 .container {
     display: block;
 }
@@ -18,19 +22,10 @@
     color: black;
 }
 
-h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    text-align: center;
-    transform: translate(-50%, -50%);
-    height: 4em;
-    padding-top: 1em;
-    color: #847477;
-    background-color: white;
-    opacity: 2;
-}
+/*h1 {*/
+/*    background-color: rgba();*/
+
+
 
 h2 {
     position: relative;
@@ -42,4 +37,17 @@ h2 {
 
 ul .list-group {
     border: gray;
+    list-style-type: none;
+}
+
+.next-button a {
+    float: right;
+}
+
+.previous-next-button a {
+    float: right;
+}
+
+.dropdown {
+
 }
