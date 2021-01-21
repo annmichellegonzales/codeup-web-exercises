@@ -47,70 +47,94 @@
     </div>
 </nav>
 
-<!--<script>-->
-<!--    "use strict";-->
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;    "use strict";&ndash;&gt;-->
 
-    /*
+<!--    /*-->
 
-    Create a function, returnUserFirstLetters, that takes in array of user objects and returns a string of the first letters in lowercase of all the user firstName property values.
+<!--    Create a function, returnUserFirstLetters, that takes in array of user objects and returns a string of the first letters in lowercase of all the user firstName property values.-->
 
-    Example:
+<!--    Example:-->
 
-     */
+<!--     */-->
 
-    // var users = [
-    //     {
-    //         age: 24,
-    //         firstName: 'John'
-    //     },
-    //     {
-    //         age: 43,
-    //         firstName: 'Cathy'
-    //     },
-    //     {
-    //         age: 65,
-    //         firstName: 'Bob'
-    //     }
-    // ];
-
-
-    // MY FIRST TRY:
-    // function returnUserFirstLetters(users) {
-    //     for(var i=0; i < users.length; i++) {
-    //         var str = users.firstName + i;
-    //         return str.toLowerCase(0);
-    //     }
-    // }
-    //
-    //SOLUTION:
-    //
-    // function returnUserFirstLetters(userArr) {
-    //     var output = '';
-    //     for (var i = 0; i < userArr.length; i += 1) {
-    //         output += userArr[i].firstName.charAt(0).toLowerCase();
-    //     }
-    //     return output;
-    // }
-    //
-    // //charAt or firstName[0]
-    //
-    // console.log(returnUserFirstLetters(users)); // returns the value "jcb"
-    //
-    // function returnSeven() {
-    //     if (2 % 2 === 0) {
-    //         var num = 7;
-    //     }
-    //     return num;
-    // }
-<!--function seven() {-->
-<!--    return 7;-->
-<!--}-->
+<!--    // var users = [-->
+<!--    //     {-->
+<!--    //         age: 24,-->
+<!--    //         firstName: 'John'-->
+<!--    //     },-->
+<!--    //     {-->
+<!--    //         age: 43,-->
+<!--    //         firstName: 'Cathy'-->
+<!--    //     },-->
+<!--    //     {-->
+<!--    //         age: 65,-->
+<!--    //         firstName: 'Bob'-->
+<!--    //     }-->
+<!--    // ];-->
 
 
+<!--    // MY FIRST TRY:-->
+<!--    // function returnUserFirstLetters(users) {-->
+<!--    //     for(var i=0; i < users.length; i++) {-->
+<!--    //         var str = users.firstName + i;-->
+<!--    //         return str.toLowerCase(0);-->
+<!--    //     }-->
+<!--    // }-->
+<!--    //-->
+<!--    //SOLUTION:-->
+<!--    //-->
+<!--    // function returnUserFirstLetters(userArr) {-->
+<!--    //     var output = '';-->
+<!--    //     for (var i = 0; i < userArr.length; i += 1) {-->
+<!--    //         output += userArr[i].firstName.charAt(0).toLowerCase();-->
+<!--    //     }-->
+<!--    //     return output;-->
+<!--    // }-->
+<!--    //-->
+<!--    // //charAt or firstName[0]-->
+<!--    //-->
+<!--    // console.log(returnUserFirstLetters(users)); // returns the value "jcb"-->
+<!--    //-->
+<!--    // function returnSeven() {-->
+<!--    //     if (2 % 2 === 0) {-->
+<!--    //         var num = 7;-->
+<!--    //     }-->
+<!--    //     return num;-->
+<!--    // }-->
+<!--&lt;!&ndash;function seven() {&ndash;&gt;-->
+<!--&lt;!&ndash;    return 7;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
 
 
-    //
-    // console.log(returnSeven());
+
+
+<!--    //-->
+<!--    // console.log(returnSeven());-->
+
+<script>
+
+function evenly(x,y) {
+    if (x === NaN || y === NaN) {
+        return false;
+    }
+    else {
+        if (x % y === 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+console.log(evenly(6,3));
+// console.log(evenly(b, 2));
+console.log(evenly("2", 1));
+
+
+</script>
+
+
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossOrigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossOrigin="anonymous"></script>
