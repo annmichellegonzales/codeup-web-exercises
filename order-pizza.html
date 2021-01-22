@@ -39,8 +39,8 @@
 
 
 <div class="container">
-        <div class="jumbotron jumbotron-fluid" >
-<!--                <h1 class="display-4">Welcome to Pizza World!</h1>-->
+        <div class="jumbotron px-0 mt-5 d-none d-md-block" >
+                <h1 class="text-center bg-light">Welcome to Pizza World!</h1>
         </div>
 
 <!--    <div class="jumbotron jumbotron-fluid">-->
@@ -61,17 +61,17 @@
                     and Crust</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="#"><span class="badge badge-dark">2</span>Cheese and Sauce</a>
+                <a class="nav-link active" data-toggle="collapse" href="#cheese"><span class="badge badge-dark">2</span>Cheese and Sauce</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="#"><span class="badge badge-dark">3</span>Toppings</a>
+                <a class="nav-link active" data-toggle="collapse" href="#toppings"><span class="badge badge-dark">3</span>Toppings</a>
             </li>
         </ul>
     </div>
 
     <!--Card for Size and Crust-->
     <div class="card-body text-justify">
-        <ul class="list-group">
+        <ul class="list-group" id="crust">
             <li class="list-group-item active">Choose size and crust</li>
             <li class="list-group-item">Hand Tossed</li>
             <ul class="list-group">
@@ -92,6 +92,7 @@
                     </div>
                 </div>
             </ul>
+            <ul class="list-group"></ul>
                 <li class="list-group-item ">Crispy Thin</li>
                 <ul class="list-group">
                 <div class="input-group">
@@ -112,7 +113,7 @@
                 </div>
             </ul>
             <div class="next-button">
-                <a href="#" class="btn btn-primary">Next Step <i class="fas fa-greater-than"></i></a>
+                <a href="#cheese" class="btn btn-primary">Next Step <i class="fas fa-greater-than"></i></a>
             </div>
         </ul>
     </div>
@@ -120,7 +121,7 @@
 
     <!--        Cheese and Sauce Card-->
     <div class="card-body text-justify">
-        <ul class="list-group">
+        <ul class="list-group" id="cheese">
             <li class="list-group-item active">Choose toppings</li>
             <li class="list-group-item">Cheese</li>
             <li class="list-group">How much?</li>
@@ -138,13 +139,9 @@
             </div>
 
 
-
-
-
             <ul class="list-group">
-
                 <!--            Sauce preferences-->
-                <li class="list-group-item ">Sauce</li>
+                <li class="list-group-item">Sauce</li>
                 <li>What type?</li>
                 <div class="dropdown">
                     <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButtonFlavorSauce" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -169,15 +166,15 @@
                 </div>
             </ul>
             <div class="previous-next-button">
-                <a href="#" class="btn btn-primary">Next Step <i class="fas fa-greater-than"></i></a>
-                <a href="#" class="btn btn-primary"><i class="fas fa-less-than"></i> Previous Step</a>
+                <a href="#crust" class="btn btn-primary">Next Step <i class="fas fa-greater-than"></i></a>
+                <a href="#toppings" class="btn btn-primary"><i class="fas fa-less-than"></i> Previous Step</a>
 
             </div>
         </ul>
     </div>
     <!--        Toppings card-->
     <div class="card-body text-justify">
-        <ul class="list-group">
+        <ul class="list-group" id="toppings">
             <li class="list-group-item active">Choose toppings</li>
             <li class="list-group-item">Choose Meats</li>
             <ul class="list-group">
