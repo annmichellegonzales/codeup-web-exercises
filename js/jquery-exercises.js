@@ -19,7 +19,6 @@
 // });
 
 
-
 // $('#para-id').css('background-color', 'purple');
 // $('#divvy').css('background-color', 'red');
 
@@ -46,6 +45,71 @@
 // alert(contents);
 
 // alert($('#codeup').html());
-$('h1').each(function() {
-    alert($(this).html());
-})
+// $('h1').each(function() {
+//     alert($(this).html());
+// })
+
+
+// $('h1').click(
+//     function() {
+//         $(this).css('background-color', '#FF0');
+//     },
+//     function() {
+//         $(this).css('background-color', '#FFF');
+//     }
+// );
+
+$('h1').click(function () {
+    $(this).css('background-color', '#FF0');
+});
+
+
+
+
+$('p').dblclick(function(e) {
+    $(this).css('font-size', '18px');
+});
+
+
+
+(function(){
+
+    let jqClassObjs = $('li');
+
+    let handlerRedColor = function(e){
+        $(this).css('color', '#FF0000');
+    };
+
+    let handlerNormalColor = function(e){
+        $(this).css({
+            color: '',
+            transition: 'color .5s'
+        })
+    }
+
+    jqClassObjs.hover(handlerRedColor, handlerNormalColor);
+
+})()
+
+$( "#target" ).toggle(function() {
+    alert( "First handler for .toggle() called." );
+}, function() {
+    alert( "Second handler for .toggle() called." );
+});git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
