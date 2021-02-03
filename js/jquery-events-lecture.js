@@ -109,15 +109,15 @@
 // (function(){
 //
 //
-//     Array.from(document.getElementsByTagName('input'))
-//         .forEach((i) => {
-//             i.addEventListener('keyup', function(e){
-//                 console.log(this.value);
-//                 if (this.value === 'casey'){
-//                     alert("GOT IT!");
-//                 }
-//         });
-//     })
+    Array.from(document.getElementsByTagName('input'))
+        .forEach((i) => {
+            i.addEventListener('keyup', function(e){
+                console.log(this.value);
+                if (this.value === 'casey'){
+                    alert("GOT IT!");
+                }
+        });
+    })
 //
 //
 //    $('input').keyup(function(e){

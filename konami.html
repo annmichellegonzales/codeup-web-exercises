@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<p>Please type something into this form:</p>
+
+
+<script src="js/jquery-3.5.1.js"></script>
+<script>
+    "use strict";
+
+
+    // $(document).keyup(function (event) {
+    //     console.log(event.keyCode);
+    //     // if(event.keyCode === 38) {
+    //     //     alert('you gained lives');
+    //     // }
+    //
+    //     let code = event.keyCode + [];
+    //     // let sequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+    //     let sequence = [38, 40];
+    //     if(code === sequence) {
+    //         alert('you gained lives');
+    //     }
+    //
+    // });
+
+    var global = {
+
+        konami: function() {
+            var konamikeys = [38,38,40,40,37,39,37,39,66,65,13],
+                started = false,
+                count = 0;
+
+            $(document).keydown(function(e){
+                var reset = function() {
+                    started = false;
+                    count = 0;
+                    return;
+                };
+
+                console.log(e.keyCode);
+
+                if(!started){
+                    if(e.keyCode == 38){
+                        started = true;
+                    }
+                }
+
+                if (started){
+
+                    if (konamikeys[count] == e.keyCode){
+                        count++;
+                    } else {
+                        reset();
+                    }
+                    if (count == 11){
+                        alert('yOu hAvE aDdEd 30 lIvEs!!!');
+                        reset();
+                    }
+                } else {
+                    reset();
+                }
+            });
+        }
+    }
+
+    global.konami();
+
+    // with help from: https://codepen.io/kmaida/pen/oCkpt
+
+</script>
+</body>
+</html>
+<!--38 38 40 40 37 39 37 39 66 65 13-->
+<!--After the correct Konami Code sequence is inputted, have the script alert the user: "You have added 30 lives! Other ideas:-->
+<!--"↑ ↑ ↓ ↓ ← → ← → b a enter"-->
