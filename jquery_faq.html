@@ -3,8 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+        /*.highlighted {*/
+        /*    background-color: yellowgreen;*/
+        /*}*/
+    </style>
+
 </head>
 <body>
+
+<p>10 Fun Facts About National Parks:</p>
+
+<dl>
+
+    <dt>Great Smoky Mountains National Park</dt>
+    <dd class>Great Smoky Mountains National Park is the most visited national park with more than 9 million guests per year, followed by Grand Canyon National Park, which gets more than 4 million visits per year.</dd>
+
+    <dt>The National Park of American Samoa</dt>
+    <dd>The National Park of American Samoa is the only National Park Service site south of the equator. It covers 13,500 total acres: 9,500 land acres and 4,000 marine acres, which are mostly coral reefs.</dd>
+
+    <dt>Nationwide</dt>
+    <dd>There are 879 visitor centers in the National Park System.</dd>
+
+    <dt>Everglades National Park</dt>
+    <dd>Everglades National Park protects more than 25% of Florida's original everglades (subtropical wetlands).</dd>
+
+    <dt>Kobuk Valley National Park</dt>
+    <dd>Alaska is home to one of the least visited national parks: Kobuk Valley National Park receives just 3,000 visitors per year.</dd>
+
+    <dt>Crater Lake National Park</dt>
+    <dd>At 1,932 feet deep, Crater Lake National Park in Oregon is the deepest lake in the U.S.</dd>
+
+    <dt>John Day Fossil Beds National Monument</dt>
+    <dd>Forty million years of mammalian history is preserved in fossils at the John Day Fossil Beds National Monument in Oregon.</dd>
+
+    <dt>White Sands National Monument</dt>
+    <dd>White Sands National Monument spans more than 176,000 acres of New Mexico desert and contains the largest gypsum dune fields in the world.</dd>
+
+    <dt>Pinnacles National Park</dt>
+    <dd>
+        Pinnacles National Park in California was designated on January 10, 2013 and is America's newest national park.</dd>
+
+    <dt>Nationwide</dt>
+    <dd>There are over 18,000 miles of trails in the national parks just waiting for you to explore them!</dd>
+
+
+</dl>
+
+
+<a href="#" id="highlighted-invisible">Click to toggle data.</a>
+
+
+
+<script src="js/jquery-3.5.1.js"></script>
+
+<script>
+
+
+    "use strict";
+
+    $(document).ready(function(){
+        $("#highlighted-invisible").click(function(){
+            $("dd").toggleClass('invisible');
+        });
+    });
+
+
+</script>
 
 </body>
 </html>
