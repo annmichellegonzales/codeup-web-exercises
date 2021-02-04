@@ -23,9 +23,15 @@
     <p>&#8593; &#8593; &#8595; &#8595; &larr; &rarr; &larr; &rarr; b a enter</p>
 </div>
 
-<audio id="pop">
+
+
+
+<audio id="win">
     <source src="audio/gamer-win.wav" type="audio/mpeg">
 </audio>
+
+
+
 
 <script src="js/jquery-3.5.1.js"></script>
 <script>
@@ -41,6 +47,12 @@
         }
     )
 
+
+
+
+    // 38 38 40 40 37 39 37 39 66 65 13
+    // After the correct Konami Code sequence is inputted, have the script alert the user: "You have added 30 lives! Other ideas:
+    // "↑ ↑ ↓ ↓ ← → ← → b a enter"
 
     // $(document).keyup(function (event) {
     //     console.log(event.keyCode);
@@ -105,7 +117,7 @@
                         reset();
                     }
                     if (count == 11) {
-                        $('audio#pop')[0].play()
+                        $('audio#win')[0].play();
                         alert('yOu hAvE aDdEd 30 livEs!!!');
                         reset();
                     }
@@ -123,6 +135,3 @@
 </script>
 </body>
 </html>
-<!--38 38 40 40 37 39 37 39 66 65 13-->
-<!--After the correct Konami Code sequence is inputted, have the script alert the user: "You have added 30 lives! Other ideas:-->
-<!--"↑ ↑ ↓ ↓ ← → ← → b a enter"-->
