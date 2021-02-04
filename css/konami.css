@@ -1,0 +1,41 @@
+body {
+    background-image: url("../img/lalafell.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+}
+
+
+h1 {
+    text-align: center;
+    font-family: "Sofia", sans-serif;
+    font-size: 60px;
+    color: lightpink;
+    text-shadow: 3px 3px 3px maroon;
+}
+
+h2{
+    position: absolute;
+    bottom: 350px;
+    text-align: center;
+    font-family: "Sofia", sans-serif;
+    font-size: 25px;
+    color: white;
+    text-shadow: 3px 3px 3px pink;
+}
+
+h3 {
+    position: absolute;
+    bottom:300px;
+    text-align: center;
+    font-family: "Sofia", sans-serif;
+    font-size: 25px;
+    color: white;
+    text-shadow: 3px 3px 3px pink;
+}
+
+.compass {
+    float: right;
+    width: 200px;
+    height: 200px;
+}

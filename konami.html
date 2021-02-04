@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Konami Code</title>
+    <link rel="stylesheet" href="css/konami.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 </head>
-<body>
-<h1>Konami Code</h1>
 
-<p>Please type something into this form:</p>
+<body>
+
+
+
+<h1>Lala's Secret World</h1>
+
+<h2>Can you help Ko-Nanamo live to see another day?</h2>
+<h3>Please enter the Secret Lalafellen Contra-Code to find out!</h3>
+
+gi
+
 
 
 <script src="js/jquery-3.5.1.js"></script>
@@ -28,6 +39,18 @@
     //     }
     //
     // });
+
+
+
+
+
+
+
+    $("<audio></audio>").attr({
+        'src':'audio/magical-sound.wav',
+        'volume':0.4,
+        'autoplay':'autoplay'
+    }).appendTo("body");
 
     var global = {
 
@@ -59,7 +82,7 @@
                         reset();
                     }
                     if (count == 11){
-                        alert('yOu hAvE aDdEd 30 lIvEs!!!');
+                        alert('yOu hAvE aDdEd 30 livEs!!!');
                         reset();
                     }
                 } else {
