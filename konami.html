@@ -2,27 +2,44 @@
 <html>
 
 <head>
+
     <title>Konami Code</title>
     <link rel="stylesheet" href="css/konami.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
 </head>
 
 <body>
 
 
-
 <h1>Lala's Secret World</h1>
 
+
 <h2>Can you help Ko-Nanamo live to see another day?</h2>
-<h3>Please enter the Secret Lalafellen Contra-Code to find out!</h3>
-
-gi
+<h3>Discover the Secret Lalafellen Contra-Code to find out!</h3>
 
 
+<div class="contra-code">
+    <p>&#8593; &#8593; &#8595; &#8595; &larr; &rarr; &larr; &rarr; b a enter</p>
+</div>
+
+<audio id="pop">
+    <source src="audio/gamer-win.wav" type="audio/mpeg">
+</audio>
 
 <script src="js/jquery-3.5.1.js"></script>
 <script>
     "use strict";
+
+
+    $('.contra-code').hover(
+        function () {
+            $(this).css('color', 'white');
+        },
+        function () {
+            $(this).css('color', 'pink');
+        }
+    )
 
 
     // $(document).keyup(function (event) {
@@ -41,26 +58,32 @@ gi
     // });
 
 
+    // $(document).keydown(function (event) {
+    //     var magic = new Audio('https://freesound.org/s/548497/');
+    //     if (event.isComposing || event.keyCode === 38) {
+    //         return;
+    //     }
+    //     magic.play();
+    // });
+    //
+    // eventTarget.addEventListener("keydown", event => {
+    //     var magic = new Audio('https://freesound.org/s/548497/');
+    //     if (event.isComposing || event.keyCode === 229) {
+    //         return;
+    //     }
+    //     magic.play();
+    // });
 
-
-
-
-
-    $("<audio></audio>").attr({
-        'src':'audio/magical-sound.wav',
-        'volume':0.4,
-        'autoplay':'autoplay'
-    }).appendTo("body");
 
     var global = {
 
-        konami: function() {
-            var konamikeys = [38,38,40,40,37,39,37,39,66,65,13],
+        konami: function () {
+            var konamikeys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13],
                 started = false,
                 count = 0;
 
-            $(document).keydown(function(e){
-                var reset = function() {
+            $(document).keydown(function (e) {
+                var reset = function () {
                     started = false;
                     count = 0;
                     return;
@@ -68,20 +91,21 @@ gi
 
                 console.log(e.keyCode);
 
-                if(!started){
-                    if(e.keyCode == 38){
+                if (!started) {
+                    if (e.keyCode == 38) {
                         started = true;
                     }
                 }
 
-                if (started){
+                if (started) {
 
-                    if (konamikeys[count] == e.keyCode){
+                    if (konamikeys[count] == e.keyCode) {
                         count++;
                     } else {
                         reset();
                     }
-                    if (count == 11){
+                    if (count == 11) {
+                        $('audio#pop')[0].play()
                         alert('yOu hAvE aDdEd 30 livEs!!!');
                         reset();
                     }

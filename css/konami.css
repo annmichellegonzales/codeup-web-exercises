@@ -19,7 +19,7 @@ h2{
     bottom: 350px;
     text-align: center;
     font-family: "Sofia", sans-serif;
-    font-size: 25px;
+    font-size: 24px;
     color: white;
     text-shadow: 3px 3px 3px pink;
 }
@@ -29,13 +29,13 @@ h3 {
     bottom:300px;
     text-align: center;
     font-family: "Sofia", sans-serif;
-    font-size: 25px;
+    font-size: 24px;
     color: white;
     text-shadow: 3px 3px 3px pink;
 }
 
-.compass {
-    float: right;
-    width: 200px;
-    height: 200px;
+p {
+    position: absolute;
+    right: 30px;
+    bottom: 75px;
 }
