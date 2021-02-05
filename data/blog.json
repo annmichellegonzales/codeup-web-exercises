@@ -16,5 +16,15 @@
             "sugar"
         ],
         "date": "February 14, 2015"
+    },
+    {
+        "title": "Blogging about Blogging",
+        "content": "This blogging exercise is ok. I think I'm getting comfortable with the structure.",
+        "categories": [
+            "education",
+            "ajax",
+            "jquery"
+        ],
+        "date": "February 5, 2021"
     }
 ]

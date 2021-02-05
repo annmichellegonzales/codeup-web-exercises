@@ -2,18 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Bloggings</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha">
+
+    <style>
+        h1 {
+            background-color: mediumpurple;
+        }
+        h4 {
+            color: mediumpurple;
+            font-family: 'Sriracha', cursive;
+
+        }
+        em {
+            color: turquoise;
+        }
+        strong {
+            color: pink;
+        }
+
+    </style>
+
 </head>
 <body>
 
-<div id="posts"></div>
+<div class="container">
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <h1>Musings of a Lorem </h1>
+    <div id="posts"></div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
+    "use strict";
 
+
+    $.get('data/blog.json')
+        .done(handleResponse);
+
+    function handleResponse(blogs) {
+        let html = "";
+        console.log("blogs");
+        blogs.forEach(function (blog) {
+            let blogHTML = '<div id="posts">';
+            blogHTML += '<h4>' + blog.title + '</h4>';
+            blogHTML += '<p>' + blog.content + '</p>';
+            blogHTML += '<p><em>' + blog.categories + '</em></p>';
+            blogHTML += '<p><strong>' + blog.date + '</strong></p>'
+            blogHTML += '</div>'
+            console.log(blogHTML)
+            html += blogHTML;
+        });
+        console.log(html);
+        $('#posts').html(html);
+    }
 
 
 </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
 
 
 </body>

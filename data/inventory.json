@@ -33,5 +33,11 @@
       "tool"
     ],
     "price": 10
+  },
+  {
+    "title": "Saw",
+    "quantity": "34",
+    "categories": "handheld",
+    "price": "5000000"
   }
 ]
