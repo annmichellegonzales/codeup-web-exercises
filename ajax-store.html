@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<table id="products">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+
+
+</table>
+
+<button onClick="window.location.reload();">Refresh</button>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+(function() {
+    "use strict";
+    // TODO: Create an AJAX GET request for the file under data/inventory.json
+
+    $.get('data/inventory.json')
+        .done(handleResponse);
+
+
+
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+
+
+
+    function handleResponse(items) {
+        let html = "";
+        console.log("items (api response):")
+        console.log(items)
+        items.forEach(function(item) {
+            // generate html for this item
+            let itemHtml = '<table id="products">'
+            itemHtml += '<td>' + item.title + '</td>';
+            itemHtml += '<td>' + item.quantity + '</td>';
+            itemHtml += '<td>' + item.price + '</td>'
+            itemHtml += '<td>' + item.categories + '</td>';
+            itemHtml += '</table>';
+            console.log('inside forEach loop, itemHtml:')
+            console.log(itemHtml);
+            html += itemHtml;
+        });
+        console.log('finished the forEach loop, html:')
+        console.log(html);
+        $('#insertProducts').html(html);
+    }
+
+
+    $.post("data/inventory.json", {
+        title: "Saw",
+        quantity: "34",
+        categories: "handheld",
+        price: "29"
+    }).done(function(data) {
+
+
+    });
+
+
+    const reloadButton = document.querySelector("#reload");
+    function reload() {
+        reload = location.reload();
+    }
+    reloadButton.addEventListener("click", reload, false);
+
+/**/
+
+    // reloadButton.addEventListener("click", )
+
+
+
+})();
+</script>
+
+</body>
+</html>

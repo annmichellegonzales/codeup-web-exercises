@@ -8,6 +8,7 @@
         .invisible {
             visibility: hidden;
         }
+
         /*.highlighted {*/
         /*    background-color: yellowgreen;*/
         /*}*/
@@ -21,10 +22,14 @@
 <dl>
 
     <dt>Great Smoky Mountains National Park</dt>
-    <dd class>Great Smoky Mountains National Park is the most visited national park with more than 9 million guests per year, followed by Grand Canyon National Park, which gets more than 4 million visits per year.</dd>
+    <dd class>Great Smoky Mountains National Park is the most visited national park with more than 9 million guests per
+        year, followed by Grand Canyon National Park, which gets more than 4 million visits per year.
+    </dd>
 
     <dt>The National Park of American Samoa</dt>
-    <dd>The National Park of American Samoa is the only National Park Service site south of the equator. It covers 13,500 total acres: 9,500 land acres and 4,000 marine acres, which are mostly coral reefs.</dd>
+    <dd>The National Park of American Samoa is the only National Park Service site south of the equator. It covers
+        13,500 total acres: 9,500 land acres and 4,000 marine acres, which are mostly coral reefs.
+    </dd>
 
     <dt>Nationwide</dt>
     <dd>There are 879 visitor centers in the National Park System.</dd>
@@ -33,30 +38,62 @@
     <dd>Everglades National Park protects more than 25% of Florida's original everglades (subtropical wetlands).</dd>
 
     <dt>Kobuk Valley National Park</dt>
-    <dd>Alaska is home to one of the least visited national parks: Kobuk Valley National Park receives just 3,000 visitors per year.</dd>
+    <dd>Alaska is home to one of the least visited national parks: Kobuk Valley National Park receives just 3,000
+        visitors per year.
+    </dd>
 
     <dt>Crater Lake National Park</dt>
     <dd>At 1,932 feet deep, Crater Lake National Park in Oregon is the deepest lake in the U.S.</dd>
 
     <dt>John Day Fossil Beds National Monument</dt>
-    <dd>Forty million years of mammalian history is preserved in fossils at the John Day Fossil Beds National Monument in Oregon.</dd>
+    <dd>Forty million years of mammalian history is preserved in fossils at the John Day Fossil Beds National Monument
+        in Oregon.
+    </dd>
 
     <dt>White Sands National Monument</dt>
-    <dd>White Sands National Monument spans more than 176,000 acres of New Mexico desert and contains the largest gypsum dune fields in the world.</dd>
+    <dd>White Sands National Monument spans more than 176,000 acres of New Mexico desert and contains the largest gypsum
+        dune fields in the world.
+    </dd>
 
     <dt>Pinnacles National Park</dt>
     <dd>
-        Pinnacles National Park in California was designated on January 10, 2013 and is America's newest national park.</dd>
+        Pinnacles National Park in California was designated on January 10, 2013 and is America's newest national park.
+    </dd>
 
     <dt>Nationwide</dt>
     <dd>There are over 18,000 miles of trails in the national parks just waiting for you to explore them!</dd>
 
-
 </dl>
-
 
 <a href="#" id="highlighted-invisible">Click to toggle data.</a>
 
+
+<h3>Big Bend National Park</h3>
+<ul>
+    <li>Texas Park</li>
+    <li>asdf</li>
+    <li>asdf</li>
+    <li>asdf</li>
+</ul>
+
+<h3>San Antonio Missions National Historic Park</h3>
+<ul>
+    <li>Texas Park</li>
+    <li>asdf</li>
+    <li>asdf</li>
+    <li>asdf</li>
+</ul>
+
+<h3>Guadalupe Mountains National Park</h3>
+<ul>
+    <li>Texas Park</li>
+    <li>asdf</li>
+    <li>asdf</li>
+    <li>asdf</li>
+</ul>
+
+
+<button id="highlighter">Highlighter</button>
 
 
 <script src="js/jquery-3.5.1.js"></script>
@@ -66,11 +103,45 @@
 
     "use strict";
 
-    $(document).ready(function(){
-        $("#highlighted-invisible").click(function(){
+    $(document).ready(function () {
+        $("#highlighted-invisible").click(function () {
             $("dd").toggleClass('invisible');
         });
     });
+
+
+
+    $('dt').click(function () {
+        $(this).css('background-color', 'yellow');
+    });
+
+    $(document).ready(function () {
+        $("button").click(function () {
+            $('li').first().css('background-color', '#FF0');
+            $('li').last().css('background-color', '#FF0');
+        });
+    });
+
+
+    //        // highlight the last li in each list-->
+    $('#highlight').click(function () {
+        $('ul').each(function () {
+            $(this).children().last().css('background-color', 'yellow');
+        });
+    });
+
+    // list items bolded when the adjacent h3 is clicked-->
+    $('h3').click(function () {
+        $(this).next().children().css('font-weight', 'bold');
+    });
+
+
+    // When any list item is clicked, first li of the parent ul should have a font color of blue-->
+    $('li').click(function () {
+        $(this).parent().children().first().css('color', 'blue');
+    });
+
+
 
 
 </script>
