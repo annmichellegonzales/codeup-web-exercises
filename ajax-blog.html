@@ -4,25 +4,32 @@
     <meta charset="UTF-8">
     <title>The Tool Shed Blog</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+
 </head>
 <body>
 
-<ul class="nav">
+<div class="container">
+
+<ul class="nav mt-3 mb-3">
+    <a class="navbar-brand" href="#">
+        <i class="fas fa-hammer"></i>
+        The Tool Shed
+    </a>
     <li class="nav-item">
         <a class="nav-link active" href="#">SHOP</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a>
+        <a class="nav-link" href="#">Blog</a>
     </li>
 </ul>
 
-<div class="container">
-    <div class="row" id="items">
 
-    </div>
+    <div id="posts">
+
 </div>
 
-
+</div>
 
 
 
@@ -44,7 +51,7 @@
             let itemHtml = '<div class="col-sm-6">'
             itemHtml += '<h2>' + item.title + '</h2>';
             itemHtml += '<p>' + item.content + '</p>';
-            itemHtml += '<p>Price: $' + item.categories + '</p>';
+            itemHtml += '<p>' + item.categories + '</p>';
             itemHtml += '<p>' + item.date + '</p>';
             itemHtml += '</div>';
             console.log('inside forEach loop, itemHtml:')
@@ -53,7 +60,7 @@
         });
         console.log('finished the forEach loop, html:')
         console.log(html);
-        $('#items').html(html);
+        $('#posts').html(html);
     }
 
 

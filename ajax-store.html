@@ -5,41 +5,35 @@
     <title>The Tool Shed Inventory</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 </head>
+
+
 <body>
 
 
 <div class="container">
 
-<ul class="nav">
-    <li class="nav-item">
-        <a class="nav-link active" href="#">SHOP</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a>
-    </li>
-</ul>
+    <ul class="nav mt-3 mb-3">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-hammer"></i>
+            The Tool Shed
+        </a>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">SHOP</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+        </li>
+    </ul>
 
+    <table class="table table-striped table-dark">
+        <tbody id="items"></tbody>
+    </table>
 
-<table class="table table-striped table-dark">
-
-
-    <tbody id="items"></tbody>
-
-</table>
-
-
-
-
-
-<!--<div id="items"></div>-->
-<button onclick="location.reload();">Refresh Page</button>
-
-
+    <button onclick="location.reload();">Refresh Page</button>
 
 </div>
-
-
 
 <script src="js/jquery-3.5.1.js"></script>
 <script>
@@ -58,7 +52,7 @@
             // generate html for this item
             let itemHtml = '<div table>'
             itemHtml += '<tr><th>' + item.title + ' </th></tr>';
-            itemHtml += '<tr>Quantity: ' + item.quantity + ' </tr>';
+            itemHtml += '<tr>Quantity: ' + item.quantity + '</tr>';
             itemHtml += '<tr>Price: $' + item.price + ' </tr>';
             itemHtml += '<tr>' + item.categories + ' </tr>';
             itemHtml += '</div>';
