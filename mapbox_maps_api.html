@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mini and Dimi's Mapbox</title>
+    <title>I Love Snacks!</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet'/>
     <link href="css/mapbox.css" rel="stylesheet">
@@ -12,7 +12,7 @@
 
 <body>
 
-<h1>Ann's List of Fav Treats and Eats in San Antonio</h1>
+<h1>I Heart Snacks!</h1>
 
 
 <div id='mapbox-map' style='width: 120vh; height: 70vh; margin: 15vh auto; border: 5px solid dodgerblue;'></div>
@@ -36,27 +36,63 @@
     map.addControl(new mapboxgl.NavigationControl());
 
     // create the popup
-    var popup = new mapboxgl.Popup({offset: 25})
+    var popup1 = new mapboxgl.Popup({offset: 25})
         .setHTML('<h1 id="polloAsado">"Pollo Asado Truck"</h1>')
+        .addTo(map)
+
+    var popup2 = new mapboxgl.Popup({offset: 25})
+        .setHTML('<h1 id="theRoach">"The Roach Buffet"</h1>')
+        .addTo(map)
+
+    var popup3 = new mapboxgl.Popup({offset: 25})
+        .setHTML('<h1 id="elKiosko">"El Kiosko"</h1>')
         .addTo(map)
 
 
     // Adding a marker to the map
 
+
+
     var polloAsadoTruck = new mapboxgl.Marker()
         .setLngLat([-98.435697, 29.373502])
-        .setPopup(popup)
+        .setPopup(popup1)
         .addTo(map);
 
     var theRoachBuffet = new mapboxgl.Marker()
         .setLngLat([-98.430872, 29.354076])
-        .setPopup(popup)
+        .setPopup(popup2)
         .addTo(map);
 
     var elKiosko = new mapboxgl.Marker()
         .setLngLat([-98.515379, 29.357058])
-        .setPopup(popup)
+        .setPopup(popup3)
         .addTo(map);
+
+
+
+    var favEateries = [
+        {
+            name: "The Pollo Asado Truck",
+            address: "543 Golden Crown, San Antonio, TX 78223",
+            cuisine: ["chicken", "mexican", "family"],
+        },
+        {
+            name: "The Roach Buffet",
+            address: "2902 Goliad Rd, Unit 109, San Antonio, TX 78223",
+            cuisine: ["mongolian bbq", "sushi", "soups"],
+        },
+        {
+            name: "El Kiosko",
+            address: "1427 SW Military Dr, San Antonio, TX 78221",
+            cuisine: ["fruit cups", "tostadas", "street food"],
+        },
+    ];
+
+
+    favEateries.forEach(snax => {
+        console.log(snax);
+        // mapboxgl.Marker().addTo(map);
+    });
 
 
     // the  geocode method from mapbox-geocoder-utils.js
