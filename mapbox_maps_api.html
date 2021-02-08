@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>I Love Snacks!</title>
+    <title>I Heart Snacks!</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet'/>
     <link href="css/mapbox.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 
 </head>
 
 
 <body>
 
-<h1>I Heart Snacks!</h1>
+<h1>I  <i class="fas fa-ice-cream"></i> Snacks!</h1>
 
 
 <div id='mapbox-map' style='width: 120vh; height: 70vh; margin: 15vh auto; border: 5px solid dodgerblue;'></div>
@@ -36,63 +37,77 @@
     map.addControl(new mapboxgl.NavigationControl());
 
     // create the popup
-    var popup1 = new mapboxgl.Popup({offset: 25})
-        .setHTML('<h1 id="polloAsado">"Pollo Asado Truck"</h1>')
-        .addTo(map)
 
-    var popup2 = new mapboxgl.Popup({offset: 25})
-        .setHTML('<h1 id="theRoach">"The Roach Buffet"</h1>')
-        .addTo(map)
-
-    var popup3 = new mapboxgl.Popup({offset: 25})
-        .setHTML('<h1 id="elKiosko">"El Kiosko"</h1>')
-        .addTo(map)
+    //
+    // var popup1 = new mapboxgl.Popup({offset: 25})
+    //     .setHTML('<h1 id="polloAsado">"Pollo Asado Truck"</h1>')
+    //     .addTo(map)
+    //
+    // var popup2 = new mapboxgl.Popup({offset: 25})
+    //     .setHTML('<h1 id="theRoach">"The Roach Buffet"</h1>')
+    //     .addTo(map)
+    //
+    // var popup3 = new mapboxgl.Popup({offset: 25})
+    //     .setHTML('<h1 id="elKiosko">"El Kiosko"</h1>')
+    //     .addTo(map)
 
 
     // Adding a marker to the map
 
+    // var polloAsadoTruck = new mapboxgl.Marker()
+    //     .setLngLat([-98.435697, 29.373502])
+    //     .setPopup(popup1)
+    //     .addTo(map);
 
+    // var theRoachBuffet = new mapboxgl.Marker()
+    //     .setLngLat([-98.430872, 29.354076])
+    //     .setPopup(popup2)
+    //     .addTo(map);
 
-    var polloAsadoTruck = new mapboxgl.Marker()
-        .setLngLat([-98.435697, 29.373502])
-        .setPopup(popup1)
-        .addTo(map);
-
-    var theRoachBuffet = new mapboxgl.Marker()
-        .setLngLat([-98.430872, 29.354076])
-        .setPopup(popup2)
-        .addTo(map);
-
-    var elKiosko = new mapboxgl.Marker()
-        .setLngLat([-98.515379, 29.357058])
-        .setPopup(popup3)
-        .addTo(map);
-
+    // var elKiosko = new mapboxgl.Marker()
+    //     .setLngLat([-98.515379, 29.357058])
+    //     .setPopup(popup3)
+    //     .addTo(map);
 
 
     var favEateries = [
         {
-            name: "The Pollo Asado Truck",
+            name: " The Pollo Asado Truck",
             address: "543 Golden Crown, San Antonio, TX 78223",
+            coordinates: [-98.435697, 29.373502],
             cuisine: ["chicken", "mexican", "family"],
+            story: "Buy from the truck, and eat at home with family.",
+
         },
         {
             name: "The Roach Buffet",
             address: "2902 Goliad Rd, Unit 109, San Antonio, TX 78223",
+            coordinates: [-98.430872, 29.354076],
             cuisine: ["mongolian bbq", "sushi", "soups"],
+            story: "My uncle claims he saw a roach there, but I like the sushi."
+            image: "img/sushi.jpg"
         },
         {
             name: "El Kiosko",
             address: "1427 SW Military Dr, San Antonio, TX 78221",
+            coordinates: [-98.515379, 29.357058],
             cuisine: ["fruit cups", "tostadas", "street food"],
+            story: "Pickled pork skin on a tostada? Yes, just yes."
         },
     ];
 
 
-    favEateries.forEach(snax => {
-        console.log(snax);
-        // mapboxgl.Marker().addTo(map);
-    });
+    favEateries.forEach(function (snack) {
+        var popup = new mapboxgl.Popup({offset: 25})
+            .setHTML("<h2>" + snack.name + "</h2>" + "<h5>" + snack.address + "</h5>" + snack.story + "img src=" + snack.image +">")
+        // .setHTML("<p>" + snack.address + "</p>")
+        // .setHTML("<p>" + snack.cuisine + "</p>");
+        var marker = new mapboxgl.Marker({})
+            .setLngLat(snack.coordinates)
+            .setPopup(popup)
+            .addTo(map);
+
+    })
 
 
     // the  geocode method from mapbox-geocoder-utils.js
