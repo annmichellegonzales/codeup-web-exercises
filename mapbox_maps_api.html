@@ -84,7 +84,7 @@
 
 <script>
 
-    mapboxgl.accessToken = mapboxToken;
+    mapboxgl.accessToken = MAPBOX_TOKEN;
     var map = new mapboxgl.Map({
         container: 'mapbox-map',
         style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
@@ -95,38 +95,7 @@
     // Add zoom and rotation controls to the map.
     map.addControl(new mapboxgl.NavigationControl());
 
-    // create the popup
 
-    //
-    // var popup1 = new mapboxgl.Popup({offset: 25})
-    //     .setHTML('<h1 id="polloAsado">"Pollo Asado Truck"</h1>')
-    //     .addTo(map)
-    //
-    // var popup2 = new mapboxgl.Popup({offset: 25})
-    //     .setHTML('<h1 id="theRoach">"The Roach Buffet"</h1>')
-    //     .addTo(map)
-    //
-    // var popup3 = new mapboxgl.Popup({offset: 25})
-    //     .setHTML('<h1 id="elKiosko">"El Kiosko"</h1>')
-    //     .addTo(map)
-
-
-    // Adding a marker to the map
-
-    // var polloAsadoTruck = new mapboxgl.Marker()
-    //     .setLngLat([-98.435697, 29.373502])
-    //     .setPopup(popup1)
-    //     .addTo(map);
-
-    // var theRoachBuffet = new mapboxgl.Marker()
-    //     .setLngLat([-98.430872, 29.354076])
-    //     .setPopup(popup2)
-    //     .addTo(map);
-
-    // var elKiosko = new mapboxgl.Marker()
-    //     .setLngLat([-98.515379, 29.357058])
-    //     .setPopup(popup3)
-    //     .addTo(map);
 
 
     var favEateries = [
