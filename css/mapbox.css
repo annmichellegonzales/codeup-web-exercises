@@ -2,3 +2,8 @@ h1 {
     color: dodgerblue;
     align-content: center;
 }
+
+#carouselFoods {
+    width: 500px;
+    height: 500px;
+}

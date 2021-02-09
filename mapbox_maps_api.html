@@ -7,17 +7,76 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet'/>
     <link href="css/mapbox.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </head>
 
 
 <body>
 
-<h1>I  <i class="fas fa-ice-cream"></i> Snacks!</h1>
+
+<div class="container">
+
+    <div class="row mt-5">
+
+        <div class="card-title col-6">
+
+            <h1>I <i class="fas fa-ice-cream"></i> Snacks!</h1>
+            <p>Hello, and thanks for visiting my top foods page. I have a preference for citrus flavors and cilantro.
+            Street foods with lime and sushi with wasabi are my favorites! My family and I currently live on the south
+            side of San Antonio, and we found these hole in the walls. Including this illusive Pollo Asado truck that is here
+                one day and gone the next!</p>
+
+        </div>
 
 
-<div id='mapbox-map' style='width: 120vh; height: 70vh; margin: 15vh auto; border: 5px solid dodgerblue;'></div>
+        <div id="carouselFoods" class="carousel slide col-6" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/pollosalcarbon.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Al Carbon Pollos Asados</h5>
+                        <p>Find the truck by calling: (210) 550-1589</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/elkiosko.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>El Kiosko</h5>
+                        <p>Tortas, Tostadas, and Troles... Oh my!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/mongolianbbq.jpeg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Buffet City</h5>
+                        <p>My uncle said he saw a roach in there, but I don't care.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
 
+
+
+    </div>
+
+    <div id='mapbox-map' style='width: 120vh; height: 70vh; margin: 15vh auto; border: 5px solid dodgerblue;'></div>
+
+</div>
 
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src="js/keys.js"></script>
@@ -72,7 +131,7 @@
 
     var favEateries = [
         {
-            name: " The Pollo Asado Truck",
+            name: "Al Carbon Pollos Asados",
             address: "543 Golden Crown, San Antonio, TX 78223",
             coordinates: [-98.435697, 29.373502],
             cuisine: ["chicken", "mexican", "family"],
@@ -80,12 +139,12 @@
 
         },
         {
-            name: "The Roach Buffet",
+            name: "Buffet City",
             address: "2902 Goliad Rd, Unit 109, San Antonio, TX 78223",
             coordinates: [-98.430872, 29.354076],
             cuisine: ["mongolian bbq", "sushi", "soups"],
             story: "My uncle claims he saw a roach there, but I like the sushi."
-            image: "img/sushi.jpg"
+            // image: "img/sushi.jpg"
         },
         {
             name: "El Kiosko",
@@ -99,9 +158,8 @@
 
     favEateries.forEach(function (snack) {
         var popup = new mapboxgl.Popup({offset: 25})
-            .setHTML("<h2>" + snack.name + "</h2>" + "<h5>" + snack.address + "</h5>" + snack.story + "img src=" + snack.image +">")
-        // .setHTML("<p>" + snack.address + "</p>")
-        // .setHTML("<p>" + snack.cuisine + "</p>");
+            .setHTML("<h2>" + snack.name + "</h2>" + "<h5>" + snack.address + "</h5>" + "<p>" + snack.cuisine + "</p>")
+
         var marker = new mapboxgl.Marker({})
             .setLngLat(snack.coordinates)
             .setPopup(popup)
@@ -121,7 +179,15 @@
     // reverseGeocode({lat: 29.8829, lng: -97.9443}, mapboxToken).then(function (data) {
     //     console.log(data);
     // })
-
 </script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
 </html>
