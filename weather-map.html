@@ -3,54 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Map</title>
-
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </head>
 <body>
 
+<div id="weatherMap"></div>
 
 
-<div id='mapbox-map' style='width: 120vh; height: 70vh; margin: 15vh auto; border: 5px solid saddlebrown;'></div>
-
-
-
-
+<script src="js/jquery-3.5.1.js"></script>
 <script src="js/keys.js"></script>
-<!--<script src="js/geocode-utils.js"></script>-->
+
+
 <script>
 
-    pro.openweathermap.org/data/2.5/forecast/hourly?q={city name}&appid={API key}
 
-    mapboxgl.accessToken = mapboxToken;
-    var map = new mapboxgl.Map({
-        container: 'mapbox-map',
-        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-        center: [-98.49, 29.42], // starting position [lng, lat]
-        zoom: 12 // starting zoom
+
+    $.get("https://api.openweathermap.org/data/2.5/onecall", {
+        APPID: OWM_TOKEN,
+        lat: 29.4241,
+        lon: -98.4936,
+        units: "imperial",
+        exclude: ["minutely", "hourly"],
+        container: 'weatherMap',
+        style: ''
+    }).done(function(data) {
+        console.log('current weather', data);
     });
 
-    pro.openweathermap.org/data/2.5/forecast/hourly?q=London,us&mode=xml&appid=weathermapToken;
 
 
-    // Add zoom and rotation controls to the map.
-    map.addControl(new mapboxgl.NavigationControl());
 
-    // create the popup
-    var popup = new mapboxgl.Popup({offset: 25}).setHTML(
-        '<h1 id="zoo-heading">The San Antonio Zoo has a little choo choo train, and some sick (as in radical) Secretary Birds.</h1>'
-    );
 
-    // Adding a marker to the map
-    var marker = new mapboxgl.Marker()
-        .setLngLat([-98.4737, 29.4624])
-        .setPopup(popup)
-        .addTo(map);
+
+
+    // mapboxgl.accessToken = MAPBOX_TOKEN;
+    // var map = new mapboxgl.Map({
+    //     container: 'mapbox-map',
+    //     style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+    //     center: [-98.49, 29.42], // starting position [lng, lat]
+    //     zoom: 10 // starting zoom
+    // });
+    //
+    // // Add zoom and rotation controls to the map.
+    // map.addControl(new mapboxgl.NavigationControl());
+
 
 
 </script>
 
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
 </html>
