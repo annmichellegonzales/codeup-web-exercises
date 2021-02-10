@@ -9,31 +9,49 @@
 </head>
 <body>
 
-<div id="weatherMap"></div>
+<div id="weather"></div>
 
 
 <script src="js/jquery-3.5.1.js"></script>
 <script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
 
 
 <script>
 
+    displayContent();
 
-    $.ajax("https://api.openweathermap.org/data/2.5/onecall?lat=29.4241&lon=-98.4936&units=imperial&" +
-        "exclude=minutely,hourly&appid=" + OWM_TOKEN).done(function (data) {
-        handleResponse(data);
-    });
+    function displayContent() {
 
-    function handleResponse(data) {
-        // var day = data.daily;
-        for(var i = 0; i < data.daily.length - 3; i++) {
-            console.log(data.daily[i]);
 
+        $.ajax("https://api.openweathermap.org/data/2.5/onecall?lat=29.4241&lon=-98.4936&units=imperial&" +
+            "exclude=minutely,hourly&appid=" + OWM_TOKEN).done(function (data) {
+            // console.log(data);
+            handleResponse(data);
+        });
+
+        function handleResponse(data) {
+            let html = '';
+            for (var i = 0; i < 5; i++) {
+                console.log(data.daily[i]);
+                let icon = data.daily[i].weather[0].icon;
+                let unixTime = data.daily[i].dt;
+                let date = new Date(unixTime * 1000);
+                let date1 = date.toLocaleDateString("en-US");
+                html = "<div class='card' style='width: 18rem'>";
+                html += "<div class='card-header'>" + date1 + "</div>"
+                html += "<ul class='list-group list-group-flush'>"
+                html += "<li class='list-group-item text-center'>" + "High Temperature: " + data.daily[i].temp.max + "℉" + "</li>"
+                html += "<li class='list-group-item text-center'>" + "Low Temperature" + data.daily[i].temp.min + "℉" + "</li>"
+                html += "<li class='list-group-item'>" + data.daily[i].humidity + "</li>";
+                html += "<li class='list-group-item'>" + icon  + "</li>"
+                html += "</ul>"
+                html += "</div>"
+            }
+            $("#weather").html(html)
         }
+
     }
-
-
-
 
 
 </script>
