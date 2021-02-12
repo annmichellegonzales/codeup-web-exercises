@@ -30,8 +30,8 @@ function displayWeather(data) {
         dayHtml += "<div class='card-header'>" + date1 + "</div>";
         dayHtml += "<ul class='list-group list-group-flush'>";
         dayHtml += "<li class='list-group-item text-center'>" + "<img src='https://openweathermap.org/img/w/" + weatherIcon + ".png'" + "</li>";
-        dayHtml += "<li class='list-group-item text-center'>" + "High Temperature: " + day[i].temp.max + "℉" + "</li>";
-        dayHtml += "<li class='list-group-item text-center'>" + "Low Temperature: " + day[i].temp.min + "℉" + "</li>";
+        dayHtml += "<li class='list-group-item text-center'>" + "High Temperature: " + Math.round(day[i].temp.max) + "℉" + "</li>";
+        dayHtml += "<li class='list-group-item text-center'>" + "Low Temperature: " + Math.round(day[i].temp.min) + "℉" + "</li>";
         dayHtml += "</ul>";
         dayHtml += "</div>";
         html += dayHtml;
@@ -50,8 +50,11 @@ var map = new mapboxgl.Map({
     zoom: 9 // starting zoom
 });
 
+
+
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
+
 
 
 // adding marker to map, able to drag
@@ -67,8 +70,9 @@ var marker = new mapboxgl.Marker({
 
 function onDragEnd() {
     var lngLat = marker.getLngLat();
-    lng = lngLat.lng;
-    lat = lngLat.lat;
+    var lng = lngLat.lng;
+    var lat = lngLat.lat;
+    var input =
     reverseGeocode(lngLat, MAPBOX_TOKEN).then(function (result){
         input.val(result);
     })
@@ -76,6 +80,8 @@ function onDragEnd() {
 }
 
 marker.on('dragend', onDragEnd);
+
+
 
 
 $("#button").click(function (e) {
@@ -92,6 +98,8 @@ $("#button").click(function (e) {
     })
 });
 
+
+
 function geocoderEventPrep(e) {
     if (e.target.className.indexOf('mapboxgl-ctrl-geocoder--input') !== -1) {
         console.log(e.target.value);
@@ -105,9 +113,10 @@ function geocoderEventPrep(e) {
         });
     }
 }
-//
+
 document.addEventListener('change', geocoderEventPrep);
-//
+
+
 // function onDragEnd() {
 //     var lngLat = marker.getLngLat();
 //     coordinates.style.display = 'block';

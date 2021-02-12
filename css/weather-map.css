@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #CCE3DE;
 }
 
 #mapbox-map {
@@ -8,6 +9,19 @@ body {
     bottom: 0;
     width: 100%;
 }
+
+#mint {
+    font-size: 36px;
+    background-color: #6B9080;
+    color: #EAF4F4;
+}
+
+#button {
+    border-color: #A4C3B2;
+    /*background-color: #A4C3B2;*/
+    /*color: #EAF4F4;*/
+}
+
 
 .coordinates {
     background: rgba(0, 0, 0, 0.5);
