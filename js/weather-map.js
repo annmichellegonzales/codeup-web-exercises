@@ -1,3 +1,6 @@
+"use strict"
+
+// creating variables for the lat and lon to display upon starting the page
 let initLat = 29.4241;
 let initLng = -98.4936;
 displayContent(initLat, initLng);
@@ -36,7 +39,7 @@ function displayWeather(data) {
         dayHtml += "</div>";
         html += dayHtml;
     }
-    $("#weather").html(html);
+    $("#weather").html(html); //connects to div with id of weather
 }
 
 
@@ -52,8 +55,10 @@ var map = new mapboxgl.Map({
 
 
 
+
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
+
 
 
 
@@ -61,17 +66,27 @@ map.addControl(new mapboxgl.NavigationControl());
 var marker = new mapboxgl.Marker({
     draggable: true
 })
-    .setLngLat([initLng, initLat])
+    .setLngLat([initLng, initLat]);
     .addTo(map);
 
 
+    //
+map.addControl(
+    new MapboxGeocoder({
+        accessToken: MAPBOX_TOKEN,
+        mapboxgl: mapboxgl
+    })
+);
 
 
 
-function onDragEnd() {
-    var lngLat = marker.getLngLat();
+
+// takes in the lat and lng where marker is dropped/ends
+function onDragEnd(lng,lat) {
+
     var lng = lngLat.lng;
     var lat = lngLat.lat;
+    var lngLat = marker.getLngLat(lng, lat);
     var input =
     reverseGeocode(lngLat, MAPBOX_TOKEN).then(function (result){
         input.val(result);
