@@ -1,23 +1,16 @@
-
 * {
     box-sizing: border-box;
-}
-
-
-h1 {
-    text-align: center;
-    font-size: 42px;
-    color: white;
 }
 
 body {
     width: 850px;
     margin: 0 auto;
-    background: #BFAFE2;
+    background: #2c3e50;
+
 }
 
-.square {
-    /*opacity: 1.0;*/
+.field {
+    opacity: 1.0;
     width: 150px;
     height: 150px;
     float: left;
@@ -26,28 +19,148 @@ body {
     transition: 0.2s;
 }
 
-.square:hover {
+.field:hover {
     transform: rotate(2deg) scale(1.1);
 }
 
+.field:active {
+    transform: scale(0.9);
+    opacity: 0.1;
+}
+
+.field.active {
+    transform: scale(0.9);
+    opacity: 0.1;
+}
 
 .red {
-    background: red;
+    background: rgb(192, 57, 43);
 }
 
 .blue {
-    background: blue;
-}
-
-.green {
-    background: green;
+    background: rgb(41, 128, 185);
 }
 
 .yellow {
-    background: yellow;
+    background: rgb(241, 196, 15);
+}
+
+.green {
+    background: rgb(46, 204, 113);
+}
+
+.bar {
+    margin-top: 50px;
+    width: 100%;
+    height: 30px;
+    float: left;
+    background: rgb(236, 240, 241);
+    border-radius: 2px;
+    color: rgb(52, 73, 94);
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+
+}
+
+.bar * {
+    float: left;
+}
+
+button {
+    min-width: 120px;
+    font-weight: bold;
+    background: rgb(236, 240, 241);
+    border-radius: 2px;
+    color: rgb(52, 73, 94);
+    line-height: 30px;
+    text-align: center;
+    border: 0;
+    transition: 0.3s;
+}
+
+button:active, button:disabled {
+    background: rgb(189, 195, 199);
+}
+
+
+footer {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-size: 12px;
+    color: rgb(236, 240, 241);
+    margin-top: 25px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 42px;
+    color: rgb(236, 240, 241);
 }
 
 .buttons {
-    width: 200px;
-    height: 150px;
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+    text-align: center;
 }
+
+button.red {
+    background: rgb(192, 57, 43);
+    color: white;
+}
+
+
+/** {*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+
+/*h1 {*/
+/*    text-align: center;*/
+/*    font-size: 42px;*/
+/*    color: white;*/
+/*}*/
+
+/*body {*/
+/*    width: 850px;*/
+/*    margin: 0 auto;*/
+/*    background: #BFAFE2;*/
+/*}*/
+
+/*.square {*/
+/*    !*opacity: 1.0;*!*/
+/*    width: 150px;*/
+/*    height: 150px;*/
+/*    float: left;*/
+/*    margin-left: 50px;*/
+/*    border-radius: 2px;*/
+/*    transition: 0.2s;*/
+/*}*/
+
+/*.square:hover {*/
+/*    transform: rotate(2deg) scale(1.1);*/
+/*}*/
+
+
+/*.red {*/
+/*    background: red;*/
+/*}*/
+
+/*.blue {*/
+/*    background: blue;*/
+/*}*/
+
+/*.green {*/
+/*    background: green;*/
+/*}*/
+
+/*.yellow {*/
+/*    background: yellow;*/
+/*}*/
+
+/*.buttons {*/
+/*    width: 200px;*/
+/*    height: 150px;*/
+/*}*/
