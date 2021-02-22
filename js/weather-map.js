@@ -45,7 +45,7 @@ function displayWeather(data) {
 
 // displays map to page
 mapboxgl.accessToken = MAPBOX_TOKEN;
-var coordinates = document.getElementById('coordinates'); //uses entered coordinates
+// var coordinates = document.getElementById('coordinates'); //uses entered coordinates
 var map = new mapboxgl.Map({
     container: 'mapbox-map', // container id
     style: 'mapbox://styles/mapbox/streets-v11', //stylesheet location
@@ -56,81 +56,81 @@ var map = new mapboxgl.Map({
 
 
 
-// Add zoom and rotation controls to the map.
-map.addControl(new mapboxgl.NavigationControl());
+// // Add zoom and rotation controls to the map.
+// map.addControl(new mapboxgl.NavigationControl());
 
 
-
-
+//
+//
 // adding marker to map, able to drag
 var marker = new mapboxgl.Marker({
     draggable: true
 })
     .setLngLat([initLng, initLat]);
-    .addTo(map);
+    // .addTo(map);
+
+// map.addControl(
+//     new MapboxGeocoder({
+//         accessToken: MAPBOX_TOKEN,
+//         mapboxgl: mapboxgl
+//     })
+// );
+
+//
+//
+//
+// // takes in the lat and lng where marker is dropped/ends
+// function onDragEnd(lng,lat) {
+//
+//     var lng = lngLat.lng;
+//     var lat = lngLat.lat;
+//     var lngLat = marker.getLngLat(lng, lat);
+//     var input =
+//     reverseGeocode(lngLat, MAPBOX_TOKEN).then(function (result){
+//         input.val(result);
+//     })
+//     displayContent();
+// }
+//
+// marker.on('dragend', onDragEnd);
+//
+//
+//
+
+// $("#button").click(function (e) {
+//     e.preventDefault();
+//     geocode($("#input").val(), MAPBOX_TOKEN).then(function (data) {
+//         // displayWeather(data[0], data[1]);
+//         // displayWeather(lat, long)
+//         marker.setLngLat([data[0], [data][1]]);
+//         marker.addTo(map);
+//         map.flyTo({
+//             center: [data[0], data[1]],
+//             essential: true,
+//             zoom: 5
+//         });
+//         // console.log([data[0], data[1]]);
+//     })
+// });
 
 
-    //
-map.addControl(
-    new MapboxGeocoder({
-        accessToken: MAPBOX_TOKEN,
-        mapboxgl: mapboxgl
-    })
-);
 
-
-
-
-// takes in the lat and lng where marker is dropped/ends
-function onDragEnd(lng,lat) {
-
-    var lng = lngLat.lng;
-    var lat = lngLat.lat;
-    var lngLat = marker.getLngLat(lng, lat);
-    var input =
-    reverseGeocode(lngLat, MAPBOX_TOKEN).then(function (result){
-        input.val(result);
-    })
-    displayContent();
-}
-
-marker.on('dragend', onDragEnd);
-
-
-
-
-$("#button").click(function (e) {
-    e.preventDefault();
-    geocode($("#input").val(), MAPBOX_TOKEN).then(function (data) {
-        displayWeather(data[0], data[1]);
-        map.flyTo({
-            center: [data[0], data[1]],
-            essential: true,
-            zoom: 5
-        });
-        marker.setLngLat([data[0], [data][1]]);
-        marker.addTo(map);
-    })
-});
-
-
-
-function geocoderEventPrep(e) {
-    if (e.target.className.indexOf('mapboxgl-ctrl-geocoder--input') !== -1) {
-        console.log(e.target.value);
-        geocode(e.target.value, MAPBOX_TOKEN).then(function (data) {
-            longitude = data[0];
-            latitude = data[1];
-            console.log(latitude);
-            console.log(longitude);
-
-            displayContent();
-        });
-    }
-}
-
-document.addEventListener('change', geocoderEventPrep);
-
+// function geocoderEventPrep(e) {
+//     if (e.target.className.indexOf('mapboxgl-ctrl-geocoder--input') !== -1) {
+//         console.log(e.target.value);
+//         geocode(e.target.value, MAPBOX_TOKEN).then(function (data) {
+//             lat = data[0];
+//             lat = data[1];
+//             console.log(latitude);
+//             console.log(longitude);
+//
+//             displayContent(lat, lng);
+//         });
+//     }
+// }
+//
+// document.addEventListener('change', geocoderEventPrep);
+//
 
 // function onDragEnd() {
 //     var lngLat = marker.getLngLat();
