@@ -46,7 +46,6 @@
     //     });
 
 
-
     // ============ Basic Example of Promise Creation and Handling
 
     // let goodKid = true;
@@ -137,32 +136,29 @@
         chain then and catch methods to handle the returned promise. Refactor
         to pass in false to the function.
      */
-
-    function trainDog(isGoodDog) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (isGoodDog) {
-                    resolve("Good dog; have a treat");
-                } else {
-                    reject("There's no such thing as bad dogs. Have a treat anyway!");
-                }
-            }, 5000);
-        });
-    }
-
-    trainDog(false)
-    .then((givingTreat) => {
-        console.log(givingTreat);
-    })
-    .catch((givingTreat) =>{
-        console.error(givingTreat);
-    });
-
-    console.log(trainDog());
-
-
-
-
+    //
+    // function trainDog(isGoodDog) {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             if (isGoodDog) {
+    //                 resolve("Good dog; have a treat");
+    //             } else {
+    //                 reject("There's no such thing as bad dogs. Have a treat anyway!");
+    //             }
+    //         }, 5000);
+    //     });
+    // }
+    //
+    // trainDog(false)
+    // .then((givingTreat) => {
+    //     console.log(givingTreat);
+    // })
+    // .catch((givingTreat) =>{
+    //     console.error(givingTreat);
+    // });
+    //
+    // console.log(trainDog());
+    //
 
 
     // ====================================== FETCH API
@@ -181,6 +177,15 @@
 
     // Fetch API Version...
 
+    // fetch('https://swapi.dev/api/people/1')
+    // .then(response => response.json())
+    // .then(data => {
+    //     console.log(data);
+    //     return fetch(data.homeworld);
+    // })
+    //     .then(response => .json())
+    // .catch(console.error);
+
 
     // -------- MINI EXERCISE 3
 
@@ -188,21 +193,33 @@
         Log the text property of the first cat fact object. Be sure to log possible errors in a catch.
      */
 
-    const catFactsURL = 'https://cat-fact.herokuapp.com/facts';
+    // const catFactsURL = 'https://cat-fact.herokuapp.com/facts';
+    //
+    // fetch(catFactsURL)
+    // .then(response => response.json())
+    // .then(data => {
+    //     console.log(data[0].text)
+    // })
+    // .catch(console.error);
 
 
     // Fetch API POST example
-
-    // fetch('https://hookb.in/eKZ0mV6k1aTr9g86Q7JM', {
+    //
+    // const config = {
     //     method: 'POST',
     //     headers: {
     //         'Content-Type': 'application/json'
     //     },
     //     body: JSON.stringify({
     //         username: "bill",
-    //         password: "pass123"
+    //         password: "pass123",
+    //         age: 34,
+    //         city: "Austin"
     //     })
-    // })
+    // };
+    //
+    //
+    // fetch('https://hookb.in/NOVbq1DxEDhWZZpRgzOB', config)
     //     .then(console.log)
     //     .catch(console.log);
 
@@ -213,17 +230,28 @@
         Experiment with sending different shapes of data in the body of the request.
      */
 
+    const config = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: "Person",
+            age: 99,
+            colors: ['blue', 'pink', 'red'],
+            pet: {
+                breed: "poodle",
+                color: "cream",
+                name: "Mazy"
+            },
+            homeowner: false
+        })
+    }
 
 
-
-
-
-
-
-
-
-
-
+    fetch('https://hookb.in/NOVbq1DxEDhWZZpRgzOB', config)
+    .then(console.log)
+    .catch(console.log);
 
 
     //  ============ NY Times Articles Based on Forecast of Current Location
@@ -274,7 +302,6 @@
     //     });
 
 
-
     // ====================================== ADDITIONAL TOPICS
 
     // ============ Promise Chaining
@@ -293,7 +320,6 @@
     //     .then(countSlow)
     //     .then(countSlow)
     //     .then(countSlow);
-
 
 
     // ============ Promise.resolve() and Promise.reject()
@@ -340,7 +366,6 @@
     // });
 
 
-
     // ============ Promise.race()
 
     // const color1Promise = new Promise((res) => {
@@ -355,8 +380,6 @@
     //
     // getColor().then(response => response.json()).then(data => console.log(data));
     //
-
-
 
 
 </script>
