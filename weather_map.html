@@ -10,23 +10,18 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/weather-map.css">
 
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
+    <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
 </head>
 <body>
 
 
 <div class="container">
     <h5 class="text-center" id="mint">Weather Map 5-day Forecast</h5>
-
-
-
-<nav class="navbar navbar-light bg-light">
-
-    <form class="form-inline">Location:
-        <input id="input" class="form-control mr-sm2 mx-3" type="search" placeholder="Search" aria-label="Search">
-        <button id="button" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-</nav>
-
 
 <!--<div id="icon"><img id="wicon" src="" alt="Weather icon"></div>-->
 
