@@ -46,7 +46,7 @@ function displayWeather(data) {
 // displays map to page
 mapboxgl.accessToken = MAPBOX_TOKEN;
 // var coordinates = document.getElementById('coordinates'); //uses entered coordinates
-var map = new mapboxgl.Map({
+let map = new mapboxgl.Map({
     container: 'mapbox-map', // container id
     style: 'mapbox://styles/mapbox/streets-v11', //stylesheet location
     center: [-98.49, 29.42], // starting position
@@ -56,15 +56,18 @@ var map = new mapboxgl.Map({
 
 
 
-// // Add zoom and rotation controls to the map.
+
+
+
+// Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
 
 
 // adding marker to map, able to drag
-var marker = new mapboxgl.Marker({
+let marker = new mapboxgl.Marker({
     draggable: true
 })
-    .setLngLat([initLng, initLat]);
+    // .setLngLat([initLng, initLat]);
     // .addTo(map);
 
 
@@ -73,10 +76,10 @@ var marker = new mapboxgl.Marker({
 
 
 
-var coordinatesGeocoder = function (query) {
+let coordinatesGeocoder = function (query) {
 // Match anything which looks like
 // decimal degrees coordinate pair.
-    var matches = query.match(
+    let matches = query.match(
         /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
     );
     if (!matches) {
@@ -97,9 +100,9 @@ var coordinatesGeocoder = function (query) {
         };
     }
 
-    var coord1 = Number(matches[1]);
-    var coord2 = Number(matches[2]);
-    var geocodes = [];
+    let coord1 = Number(matches[1]);
+    let coord2 = Number(matches[2]);
+    let geocodes = [];
 
     if (coord1 < -90 || coord1 > 90) {
 // must be lng, lat
@@ -130,81 +133,3 @@ map.addControl(
         mapboxgl: mapboxgl
     })
 );
-
-
-
-
-
-
-
-
-// map.addControl(
-//     new MapboxGeocoder({
-//         accessToken: MAPBOX_TOKEN,
-//         mapboxgl: mapboxgl
-//     })
-// );
-
-//
-//
-//
-// // takes in the lat and lng where marker is dropped/ends
-// function onDragEnd(lng,lat) {
-//
-//     var lng = lngLat.lng;
-//     var lat = lngLat.lat;
-//     var lngLat = marker.getLngLat(lng, lat);
-//     var input =
-//     reverseGeocode(lngLat, MAPBOX_TOKEN).then(function (result){
-//         input.val(result);
-//     })
-//     displayContent();
-// }
-//
-// marker.on('dragend', onDragEnd);
-//
-//
-//
-
-// $("#button").click(function (e) {
-//     e.preventDefault();
-//     geocode($("#input").val(), MAPBOX_TOKEN).then(function (data) {
-//         // displayWeather(data[0], data[1]);
-//         // displayWeather(lat, long)
-//         marker.setLngLat([data[0], [data][1]]);
-//         marker.addTo(map);
-//         map.flyTo({
-//             center: [data[0], data[1]],
-//             essential: true,
-//             zoom: 5
-//         });
-//         // console.log([data[0], data[1]]);
-//     })
-// });
-
-
-
-// function geocoderEventPrep(e) {
-//     if (e.target.className.indexOf('mapboxgl-ctrl-geocoder--input') !== -1) {
-//         console.log(e.target.value);
-//         geocode(e.target.value, MAPBOX_TOKEN).then(function (data) {
-//             lat = data[0];
-//             lat = data[1];
-//             console.log(latitude);
-//             console.log(longitude);
-//
-//             displayContent(lat, lng);
-//         });
-//     }
-// }
-//
-// document.addEventListener('change', geocoderEventPrep);
-//
-
-// function onDragEnd() {
-//     var lngLat = marker.getLngLat();
-//     coordinates.style.display = 'block';
-//     coordinates.innerHTML =
-//         'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
-// }
-//
