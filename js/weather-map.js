@@ -1,16 +1,22 @@
 "use strict"
 
 // creating variables for the lat and lon to display upon starting the page
-let initLat = 29.4241;
-let initLng = -98.4936;
-displayContent(initLat, initLng);
+
+initialize();
+
+function initialize() {
+    let initLat = 29.4241;
+    let initLng = -98.4936;
+    displayContent(initLat, initLng);
+    displayMapToPage();
+}
 
 // retrieves information from the api, uses personal token
-function displayContent(initLat, initLng) {
+function displayContent(lat, lng) {
     $.get("https://api.openweathermap.org/data/2.5/onecall", {
         APPID: OWM_TOKEN,
-        lat: initLat,
-        lon: initLng,
+        lat: lat,
+        lon: lng,
         units: "imperial",
         exclude: "minutely, hourly",
     }).done(function (data) {
@@ -28,7 +34,7 @@ function displayWeather(data) {
         let weatherIcon = day[i].weather[0].icon;
         let unixTime = day[i].dt;
         let date = new Date(unixTime * 1000);
-        let date1 = date.toLocaleDateString("en-US", { weekday: 'long' });
+        let date1 = date.toLocaleDateString("en-US", {weekday: 'long'});
         let dayHtml = "<div class='card' style='width: 18rem'>";
         dayHtml += "<div class='card-header'>" + date1 + "</div>";
         dayHtml += "<ul class='list-group list-group-flush'>";
@@ -42,40 +48,20 @@ function displayWeather(data) {
     $("#weather").html(html); //connects to div with id of weather
 }
 
-
-// displays map to page
-mapboxgl.accessToken = MAPBOX_TOKEN;
+function displayMapToPage(lng, lat) {
+    mapboxgl.accessToken = MAPBOX_TOKEN;
 // var coordinates = document.getElementById('coordinates'); //uses entered coordinates
-let map = new mapboxgl.Map({
-    container: 'mapbox-map', // container id
-    style: 'mapbox://styles/mapbox/streets-v11', //stylesheet location
-    center: [-98.49, 29.42], // starting position
-    zoom: 9 // starting zoom
-});
+    let map = new mapboxgl.Map({
+        container: 'mapbox-map', // container id
+        style: 'mapbox://styles/mapbox/streets-v11', //stylesheet location
+        center: [lng, lat], // starting position
+        zoom: 9 // starting zoom
+    });
+
+}
 
 
 
-
-//
-//
-//
-// // Add zoom and rotation controls to the map.
-// map.addControl(new mapboxgl.NavigationControl());
-//
-//
-// // adding marker to map, able to drag
-// let marker = new mapboxgl.Marker({
-//     draggable: true
-// })
-//     // .setLngLat([initLng, initLat]);
-//     // .addTo(map);
-//
-//
-
-
-
-
-//
 // let coordinatesGeocoder = function (query) {
 // // Match anything which looks like
 // // decimal degrees coordinate pair.
@@ -85,20 +71,20 @@ let map = new mapboxgl.Map({
 //     if (!matches) {
 //         return null;
 //     }
-//
-//     function coordinateFeature(lng, lat) {
-//         return {
-//             center: [lng, lat],
-//             geometry: {
-//                 type: 'Point',
-//                 coordinates: [lng, lat]
-//             },
-//             place_name: 'Lat: ' + lat + ' Lng: ' + lng,
-//             place_type: ['coordinate'],
-//             properties: {},
-//             type: 'Feature'
-//         };
-//     }
+    //
+    // function coordinateFeature(lng, lat) {
+    //     return {
+    //         center: [lng, lat],
+    //         geometry: {
+    //             type: 'Point',
+    //             coordinates: [lng, lat]
+    //         },
+    //         place_name: 'Lat: ' + lat + ' Lng: ' + lng,
+    //         place_type: ['coordinate'],
+    //         properties: {},
+    //         type: 'Feature'
+    //     };
+    // }
 //
 //     let coord1 = Number(matches[1]);
 //     let coord2 = Number(matches[2]);
@@ -122,14 +108,3 @@ let map = new mapboxgl.Map({
 //
 //     return geocodes;
 // };
-//
-// // Add the control to the map.
-// map.addControl(
-//     new MapboxGeocoder({
-//         accessToken: mapboxgl.accessToken,
-//         localGeocoder: coordinatesGeocoder,
-//         zoom: 4,
-//         placeholder: 'Try: -40, 170',
-//         mapboxgl: mapboxgl
-//     })
-// );
