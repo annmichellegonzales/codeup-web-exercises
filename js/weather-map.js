@@ -1,30 +1,5 @@
 "use strict"
 
-// creating variables for the lat and lon to display upon starting the page
-
-// initialize();
-//
-// function initialize() {
-//     let lat = 29.4241;
-//     let lng = -98.4936;
-//     displayContent(lat, lng);
-//     // displayMapToPage();
-// }
-//
-// // retrieves information from the api, uses personal token
-// function displayContent(lat, lng) {
-//     $.get("https://api.openweathermap.org/data/2.5/onecall", {
-//         APPID: OWM_TOKEN,
-//         lat: lat,
-//         lon: lng,
-//         units: "imperial",
-//         exclude: "minutely, hourly",
-//     }).done(function (data) {
-//         console.log(data);
-//         reverseGeocode({lng, lat}, MAPBOX_TOKEN).then(function (data) {
-//             $("#current").text("Current Location: " + data)
-//             displayWeather(data);
-//         });
 
 
 // // creates display for html using the weather id
