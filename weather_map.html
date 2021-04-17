@@ -1,72 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-
     <meta charset="UTF-8">
-    <title>Weather Map</title>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet'/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>weather Map API</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.css" rel="stylesheet"/>
     <link rel="stylesheet" href="css/weather-map.css">
-
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
-    <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
-    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
+
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <p class="text-left" id="nav-color">Weather app</p>
+        <p class="text-right" id="current">current location:</p>
+    </div>
+</nav>
 
-<div class="container">
-    <h5 class="text-center" id="mint">Weather Map 5-day Forecast</h5>
-
+<nav class="navbar navbar-light bg-light">
     <form class="form-inline">
-        Search: <input id="type-in" class="form-control mr-sm-2 mx-3" type="search" placeholder="Search"
+        <input id="type-in" class="form-control mr-sm-2 mx-3" type="search" placeholder="Enter a location"
                      aria-label="Search">
         <button id="button" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
     </form>
+</nav>
 
-
-<div class="d-flex justify-content-around" id="weather" src=""></div>
-
-<div id='mapbox-map' style='width: 140vh; height: 70vh; margin: 5vh auto; border: 5px solid #A4C3B2'></div>
-<pre id="coordinates" class="coordinates"></pre>
-</div>
-
-
-
-
-<!--        <p class="text-right" id="current">current location:</p>-->
-<!--    </div>-->
-<!--</nav>-->
-<!--<nav class="navbar navbar-light bg-light">-->
-<!--    <form class="form-inline">-->
-<!--        place <input id="type-in" class="form-control mr-sm-2 mx-3" type="search" placeholder="Search"-->
-<!--                     aria-label="Search">-->
-<!--        <button id="button" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>-->
-<!--    </form>-->
-<!--</nav>-->
-<!--<div id="display-map" class="d-flex justify-content-around mt-5"></div>-->
-
-<!--<div class="coordinates" id='mapbox-map' style='width: 90%; height: 70vh; margin: 5vh auto;'></div>-->
+<div id="display-map" class="d-flex justify-content-around mt-5"></div>
+<div class="coordinates" id='mapbox-map' style='width: 90%; height: 70vh; margin: 5vh auto;'></div>
 
 <script src="js/jquery-3.5.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
 <script src="js/keys.js"></script>
-<script src="js/mapbox-geocoder-utils.js"></script>
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-<script src="js/weather-map.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
 
+<script>
+
+    let lat = 29.4243;
+    let lng = -98.4911;
+
+    displayPage();
+
+    function displayPage() {
+        $.get("https://api.openweathermap.org/data/2.5/onecall", {
+            APPID: OWM_TOKEN,
+            lat: lat,
+            lon: lng,
+            units: "imperial",
+            exclude: "minutely,hourly"
+        }).done(function (data) {
+            reverseGeocode({lng, lat}, MAPBOX_TOKEN).then(function (data) {
+                $("#current").text("Current Location: " + data )
+            })
+            console.log(data);
+
+            let html = '';
+            for (let i = 0; i < 5; i++) {
+                let icon = data.daily[i].weather[0].icon
+                let unixTime = data.daily[i].dt;
+                let date = new Date(unixTime * 1000);
+                let date1 = date.toLocaleDateString("en-US")
+                html += "<div class='card' style='width: 15rem'>"
+                html += "<div class='card-header'>" + date1 + "</div>"
+                html += "<ul class='list-group list-group-flush'>"
+                html += "<li class='list-group-item text-center'>" + data.daily[i].temp.max + "℉" + ' / ' + data.daily[i].temp.min + "℉" + "<br>" + "<img src='http://openweathermap.org/img/wn/" + icon + ".png'>" + "</li>"
+                html += "<li class='list-group-item text-center'>" +
+                    "description: " + "<strong>" + data.daily[i].weather[0].description + "</strong>" + "<br>" +
+                    "Humidity: " + "<strong>" + data.daily[i].humidity + "</strong>" + "</li>"
+                html += "<li class='list-group-item text-center'>" + "Wind: " + "<strong>" + data.daily[i].wind_speed + "</strong>" + "</li>"
+                html += "<li class='list-group-item text-center'>" + "Pressure: " + "<strong>" + data.daily[i].pressure + "</strong>" + "</li>"
+                html += "</ul>"
+                html += "</div>"
+            }
+            $("#display-map").html(html)
+
+        });
+    }
+
+    mapboxgl.accessToken = MAPBOX_TOKEN
+    const map = new mapboxgl.Map({
+        container: 'mapbox-map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [lng, lat], // starting position [lng, lat]
+        zoom: 10 // starting zoom
+    });
+    map.addControl(new mapboxgl.NavigationControl());
+
+    var marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([lng, lat])
+        .addTo(map)
+
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        lat = lngLat.lat
+        lng = lngLat.lng
+        reverseGeocode(lngLat, MAPBOX_TOKEN).then(function (data) {
+            $("#type-in").val(data)
+            $("#current").text("Current Location: " + data)
+            displayPage()
+        })
+    }
+
+    marker.on('dragend', onDragEnd);
+
+    $("#button").click(function (e) {
+        e.preventDefault();
+        var message = $("#type-in").val()
+        geocode(message, MAPBOX_TOKEN).then(function (data) {
+            displayPage(data[1], data[0]);
+            $("#current").text("Current Location: " + message)
+            map.flyTo({
+                center: [
+                    data[0], data[1],
+                ],
+                essential: true,
+                zoom: 8,
+            });
+            marker.setLngLat([
+                data[0], data[1]
+            ]);
+            marker.addTo(map);
+        });
+    });
+
+    function geocode(search, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+                // to get all the data from the request, comment out the following three lines...
+            }).then(function(data) {
+                return data.features[0].center;
+            });
+    }
+
+    function reverseGeocode(coordinates, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+            })
+            // to get all the data from the request, comment out the following three lines...
+            .then(function(data) {
+                console.log(data)
+                return data.features[0].place_name;
+            });
+    }
+
+</script>
 </body>
 </html>
